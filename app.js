@@ -28,6 +28,6 @@ app.use(function (err, req, res) {
     res.send(err);
 });
 
-app.listen(3000, "0.0.0.0", function () {
+app.listen(80, function () {
 	console.log("The server is listening closely on port 3000");
 });
