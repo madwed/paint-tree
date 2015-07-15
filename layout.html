@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bouncing Shape</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css"/>
+	<link rel="stylesheet" href="/jquery-ui-1.11.4.custom/jquery-ui.css"/>
+
+</head>
+<body ng-app="DrawApp">
+<div class="navbar">
+	<p ui-sref="home">Home</p>
+	<p ui-sref="draw">Draw</p>
+</div>
+<div class="row"><ui-view></ui-view></div>
+
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="/js/drawApp.js"></script>
+	<script src="/controllers/canvas.controller.js"></script>
+</body>

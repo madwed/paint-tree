@@ -1,0 +1,28 @@
+{
+  "name": "ang-mad-painters",
+  "version": "0.0.0",
+  "description": "A drawing platform where users can share their works.",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madwed/mad-paint-platform.git"
+  },
+  "keywords": [
+    "drawing",
+    "social"
+  ],
+  "author": "Isaac Madwed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/madwed/mad-paint-platform/issues"
+  },
+  "homepage": "https://github.com/madwed/mad-paint-platform",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "express": "^4.13.1",
+    "mongoose": "^4.0.7"
+  }
+}
