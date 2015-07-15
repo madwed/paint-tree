@@ -4,7 +4,7 @@ mongoose.connection.on("error", console.error.bind(console, "connection error:")
 
 var drawingSchema = new mongoose.Schema({
 	author: String,
-	img: Buffer,
+	img: String,
 	contentType: String,
 	dimensions: String,
 	lastAccessed: {type: Date, default: Date.now }
@@ -17,7 +17,7 @@ drawingSchema.path("img").set(function (imgString) {
 		console.log("img set Error: ", e);
 	}
 
-	var image64 = imgString.replace("data:image/png;base64,", "");
+	var image64 = imgString.replace(/data:(?:.*);base64\,/, "");
 	var img = new Buffer(image64, "base64");
 	return img;
 });
