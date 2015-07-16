@@ -20,7 +20,7 @@ app.controller("CanvasCtrl", function ($scope, $http) {
 	var saveButton = document.getElementById("save");
 	saveButton.addEventListener("click", function () {
 		var canvasData = canvas.toDataURL();
-		$http.post("/", {img: canvasData, author: "Isaac Madwed"}).
+		$http.post("/paintings/new", {img: canvasData, author: "Isaac Madwed"}).
 			success(function (data) {
 				console.log(data);
 			}).

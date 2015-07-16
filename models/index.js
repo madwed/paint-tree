@@ -6,7 +6,17 @@ var drawingSchema = new mongoose.Schema({
 	mainAuthor: String,
 	subAuthor: String,
 	dimensions: String,
+	link: String,
 	lastAccessed: {type: Date, default: Date.now }
+});
+
+drawingSchema.methods.setLink = function () {
+	this.link = this._id + "";
+};
+
+drawingSchema.pre("save", function (next) {
+	this.setLink();
+	next();
 });
 
 drawingSchema.virtual("thumbnail").get(function () {

@@ -1,5 +1,23 @@
 @CHARSET "UTF-8";
 
+.container{
+	border: 4px solid black;
+}
+.thumbnail{
+	width: 100px;
+	height: 100px;
+}
+img{
+	width:100%;
+}
+
+
+
+
+
+
+
+
 
 body{
 	font: 75% "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;

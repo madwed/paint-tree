@@ -2,11 +2,44 @@ var router = require("express").Router();
 var AWS = require("aws-sdk");
 var s3 = new AWS.S3();
 
-var model = require("../models");
+var models = require("../models");
 
+// Route: /paintings/
 router.get("/", function (req, res) {
 	//Route that serves up a number of root images from the database
 	//For viewing
+	models.Drawing.find().exec().then(function (images) {
+		res.json(images);
+	}).then(null, function (err) {
+		res.send("Image find error");
+	});
+});
+
+router.post("/new", function (req, res) {
+	var image64 = req.body.img;
+	// console.log(buffer);
+	// console.log("data:image/png;base64," + buffer.toString("base64"));
+
+	var draw = new models.Drawing();
+	draw.mainAuthor = req.body.author;
+	draw.save(function (err) {
+		if (err) { throw err; }
+		var drawKey = draw._id + "";
+		s3.putObject({
+			Bucket: "madpainter/drawings",
+			Key: drawKey,
+			Body: req.body.img
+		}, function (error, data) {
+			if(error) {
+				console.log(err);
+				res.send("Error");
+			} else {
+				console.log(data);
+				res.send("Saved");
+			}
+		});
+		// console.log(awstest2);
+	});
 });
 
 router.get("/:paintingId", function (req, res) {

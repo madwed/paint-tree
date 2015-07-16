@@ -12,7 +12,7 @@
 	<p ui-sref="home">Home</p>
 	<p ui-sref="draw">Draw</p>
 </div>
-<div class="row"><ui-view></ui-view></div>
+<div class="row" ng-controller="MainCtrl"><ui-view></ui-view></div>
 
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
@@ -20,4 +20,8 @@
 	<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="/js/drawApp.js"></script>
 	<script src="/controllers/canvas.controller.js"></script>
+	<script src="/controllers/main.controller.js"></script>
+	<script src="/controllers/home.controller.js"></script>
+	<script src="/directives/thumbnail.directive.js"></script>
+	<script src="/factories/image.factory.js"></script>
 </body>
