@@ -1,39 +1,20 @@
 var router = require("express").Router();
 var AWS = require("aws-sdk");
 var s3 = new AWS.S3();
-var async = require("async");
+
 
 var models = require("../models");
 
-var s3FindImage = function(imgData, doneCb){
-	return s3.getObject({
-		Bucket: "/madpainter/drawings", 
-		Key: imgData.link,
-		ResponseContentType: 'utf8'
-	}, function(err, image){
-		console.log(image);
-		if(err) { doneCb(err); }
-		else {
-			var fullImageObject = {data: imgData, image: image.Body.toString("utf8")};
-			doneCb(null, fullImageObject); 
-		}
-	});
-}
 
 // Route: /paintings/
 router.get("/", function (req, res) {
 	//Route that serves up a number of root images from the database
 	//For viewing
-	models.Drawing.find().exec().then(function (images) {
-		async.map(images, s3FindImage, function(err, results){
-			if (err) {
-				console.log("s3async error", err);
-				res.send(404);
-			} else {
-				res.json(results);
-			}
-		});	
+	models.Drawing.loadImages().then(function (info) {
+		console.log("heyyyyy", info);
+		res.json(info);
 	}).then(null, function (err) {
+		console.log(err);
 		console.log("Error loading home page images");
 		res.send(404);
 	});
