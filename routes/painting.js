@@ -1,6 +1,7 @@
 var router = require("express").Router();
 var AWS = require("aws-sdk");
 var s3 = new AWS.S3();
+var Promise = require("bluebird");
 
 
 var models = require("../models");
