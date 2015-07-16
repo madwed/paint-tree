@@ -36,7 +36,7 @@ router.post("/", function (req, res) {
   //         }
   //    });
 
-	console.log(req.body.img.match(/data\:(.*)\;/)[1]);
+	
 	var image64 = req.body.img.replace("data:image/png;base64,", "");
 	var buffer = new Buffer(image64, "base64");
 	// console.log(buffer);
