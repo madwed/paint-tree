@@ -46,7 +46,11 @@ drawingSchema.pre("save", function (next) {
 drawingSchema.statics.loadImages = function () {
 	//return a thumbnail version of drawing
 	return this.find().exec().then(function (images) {
-		return Promise.map(images, s3FindImage);	
+		return Promise.map(images, s3FindImage).then(function(results){
+			return results;
+		}, function(err){
+			return err;
+		});	
 	});
 };
 
