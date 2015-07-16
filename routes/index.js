@@ -1,5 +1,7 @@
 var router = require("express").Router();
 var path = require("path");
+var AWS = require("aws-sdk");
+var s3 = new AWS.S3();
 
 var models = require("../models");
 
@@ -37,20 +39,32 @@ router.post("/", function (req, res) {
   //    });
 
 	
-	var image64 = req.body.img.replace("data:image/png;base64,", "");
-	var buffer = new Buffer(image64, "base64");
+	var image64 = req.body.img;
 	// console.log(buffer);
 	// console.log("data:image/png;base64," + buffer.toString("base64"));
 
-	// var draw = new models.Drawing();
-	// draw.img.data = buffer;
-	// draw.img.contentType = "image/png";
-	// draw.author = req.body.author;
-	// draw.save(function (err) {
-	// 	if (err) { throw err; }
-	// 	res.send("Saved");
-	// });
-res.send("test");
+	var draw = new models.Drawing();
+	draw.mainAuthor = req.body.author;
+	draw.save(function (err) {
+		if (err) { throw err; }
+		var drawKey = draw._id + "";
+		s3.putObject({
+			Bucket: "madpainter/drawings", 
+			Key: drawKey, 
+			Body: req.body.img
+		}, function (err, data) {
+			if(err) { 
+				console.log(err);
+				res.send("Error");
+			} else { 
+				console.log(data);
+				res.send("Saved");
+			}
+		});
+		// console.log(awstest2);
+
+		
+	});
 
 
 });
