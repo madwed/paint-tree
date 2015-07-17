@@ -12,11 +12,9 @@ router.get("/", function (req, res) {
 	//Route that serves up a number of root images from the database
 	//For viewing
 	models.Drawing.loadImages().then(function (info) {
-		console.log("heyyyyy", info);
 		res.json(info);
 	}).then(null, function (err) {
-		console.log(err);
-		console.log("Error loading home page images");
+		console.log("Error loading home page images", err);
 		res.send(404);
 	});
 });

@@ -1,6 +1,6 @@
 {
   "name": "ang-mad-painters",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A drawing platform where users can share their works.",
   "main": "app.js",
   "scripts": {
