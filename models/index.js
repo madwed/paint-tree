@@ -41,9 +41,9 @@ var s3FindImage = function(imgData){
 };
 
 
-drawingSchema.statics.loadImages = function () {
+drawingSchema.statics.loadImages = function (limit) {
 	//return a thumbnail version of drawing
-	return this.find().exec().then(function (images) {
+	return this.find().limit(limit).exec().then(function (images) {
 		return Promise.map(images, s3FindImage);
 	});
 };
