@@ -1,0 +1,11 @@
+$nav-color: #000;
+
+.navbar{
+	position: fixed;
+	top: 0px;
+	width: 100vw;
+	height: 5vh;
+	background-color: $nav-color;
+	color: invert($nav-color);
+}
+

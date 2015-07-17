@@ -8,11 +8,11 @@
 
 </head>
 <body ng-app="DrawApp">
-<div class="navbar">
-	<p ui-sref="home">Home</p>
-	<p ui-sref="draw">Draw</p>
+<div class="navbar row">
+	<div class="nav-item container" ui-sref="home"><span>Home</span></div>
+	<div class="nav-item container" ui-sref="draw"><span>Draw</span></div>
 </div>
-<div class="row" ng-controller="MainCtrl"><ui-view></ui-view></div>
+<div class="row first-row" ng-controller="MainCtrl"><ui-view></ui-view></div>
 
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>

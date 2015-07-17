@@ -5,12 +5,7 @@ var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
 var router = require(path.join(__dirname, "/routes"));
-var sass = require("node-sass");
-
-sass.renderSync({
-	file: path.join(__dirname, "/assets/stylesheets/style.scss"),
-	outFile: path.join(__dirname, "/public/stylesheets/style.css")
-});
+var sass = require("node-sass-middleware");
 
 var app = express();
 

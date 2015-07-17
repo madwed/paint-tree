@@ -45,13 +45,7 @@ drawingSchema.statics.loadImages = function () {
 	//return a thumbnail version of drawing
 	return this.find().exec().then(function (images) {
 		return Promise.map(images, s3FindImage);
-	}).then(function(results){
-		console.log(results);
-		return results;
-	}, function(err){
-		console.log(err, "err in loadImages")
-		return err;
-	});	
+	});
 };
 
 var Drawing = mongoose.model("Drawing", drawingSchema);
