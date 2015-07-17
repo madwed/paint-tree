@@ -3,6 +3,8 @@ app.controller("ThumbnailCtrl", function ($scope, $http, $state, ImageFactory) {
 	// 	$scope.thePainting.imgString = response.data;
 	// 	
 	// });
+
+	$scope.thePainting.thumbnail = $scope.thePainting.image + "?w=168"
 	$scope.loaded = true;
 	
 	$scope.editImg = function () {
