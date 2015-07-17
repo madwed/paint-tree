@@ -1102,10 +1102,7 @@ Piece.prototype.uiAddBrush = function(action, how, brush, x, y, vel, random){
 Piece.prototype.clickInterface = function(){
   var self = this;
   var canvas = this.canvas;
-  $("#save").button().off("click").on("click", function(){
-    save(canvas, "stillLife", "jpg");
-    return false;
-  });
+  
   $("#clear").button().off("click").on("click", function(event){
     var w = self.canvas.width, h = self.canvas.height;
     self.ctx.clearRect(0, 0, w, h);
