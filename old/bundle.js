@@ -1102,10 +1102,7 @@ Piece.prototype.uiAddBrush = function(action, how, brush, x, y, vel, random){
 Piece.prototype.clickInterface = function(){
   var self = this;
   var canvas = this.canvas;
-  $("#save").button().off("click").on("click", function(){
-    save(canvas, "stillLife", "jpg");
-    return false;
-  });
+  
   $("#clear").button().off("click").on("click", function(event){
     var w = self.canvas.width, h = self.canvas.height;
     self.ctx.clearRect(0, 0, w, h);
@@ -1394,7 +1391,7 @@ var DryBrush = require("./lib/DryBrush");
 var Brush = require("./lib/Brush");
 var Vector = require("./lib/Vector");
 window.onload = function() {
-  var canvas1 = document.getElementById("canvas1");
+  var canvas1 = document.getElementById("canvas");
   bigMan = new Piece();
   bigMan.init(canvas1);
   /*var brushMan = new BrushManager(function(marks){return this.invertG(marks); }

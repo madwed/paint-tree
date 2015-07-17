@@ -1394,10 +1394,10 @@ var DryBrush = require("./lib/DryBrush");
 var Brush = require("./lib/Brush");
 var Vector = require("./lib/Vector");
 window.onload = function() {
-  var canvas1 = document.getElementById("canvas1");
+  var canvas1 = document.getElementById("canvas");
   bigMan = new Piece();
   bigMan.init(canvas1);
-  /*var brushMan = new BrushManager(function(marks){return this.invertG(marks); }
+  var brushMan = new BrushManager(function(marks){return this.invertG(marks); }
     , function(){return this.getMarksNoGaps(); });
   bigMan.addManager(brushMan);
   for(var i = 0; i < 100; i++){
@@ -1417,7 +1417,7 @@ window.onload = function() {
     var newBrush = brushMan1.brushes[brushMan1.brushes.length - 1];
     newBrush.setMaxSpeedAndForce(1, .01);
     newBrush.rgbaValues = [Math.random() * 255, 0, Math.random() * 255, 255];
-  }*/
+  }
 
   bigMan.initUI();
 

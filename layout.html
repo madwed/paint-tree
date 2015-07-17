@@ -12,7 +12,26 @@
 	<div class="nav-item container" ui-sref="home"><span>Home</span></div>
 	<div class="nav-item container" ui-sref="draw"><span>Draw</span></div>
 </div>
-<div class="row first-row" ng-controller="MainCtrl"><ui-view></ui-view></div>
+<!-- <div class="row first-row" ng-controller="MainCtrl"><ui-view></ui-view></div> -->
+
+<div id="container">
+  <div id="canbox">
+    <div id="canvasFrame"></div>
+    <div id="canvasFrameMat"></div>
+    <canvas class="canvas" id="canvas" width="840",height="640">
+      this requires javascript
+    </canvas>
+  </div>
+</div>
+<div id="base">
+  <div id="localButtons">
+    <button id="save">Save</button>
+    <button id="clear">Clear</button>
+  </div>
+</div>
+
+
+<script src="/js/bundle.js"></script>
 
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>

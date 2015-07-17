@@ -1,8 +1,8 @@
-app.directive("thumbnail", function () {
+app.directive("thumbNail", function () {
 	return {
 		restrict: "E",
 		scope: {
-			painting: "=paintImg"
+			thePainting: "=painter"
 		},
 		templateUrl: "/directives/thumbnail/thumbnail.html"
 	}
