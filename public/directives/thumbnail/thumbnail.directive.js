@@ -2,7 +2,7 @@ app.directive("thumbnail", function () {
 	return {
 		restrict: "E",
 		scope: {
-			"painting": "=paint-img"
+			painting: "=paintImg"
 		},
 		templateUrl: "/directives/thumbnail/thumbnail.html"
 	}
