@@ -34,10 +34,16 @@ drawingSchema.virtual("link").get(function () {
 // 	});
 // };
 
+var resolveImage = function(imgData){
+	return {data: imgData, image: imgData.link};
+}
+
 
 drawingSchema.statics.loadImages = function (limit) {
 	//return a thumbnail version of drawing
-	return this.find().limit(limit).exec();
+	return this.find().limit(limit).exec().then(function (images) {
+		return Promise.map(images, resolveImage);
+	});
 
 	// .then(function (images) {
 	// 	return Promise.map(images, s3FindImage);

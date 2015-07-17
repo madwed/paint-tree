@@ -1,3 +1,4 @@
-<div class="container thumbnail" ng-controller="ThumbnailCtrl">
-	<img ng-src="{{thePainting.image}}" data-id="{{thePainting.data._id}}" />
-</div>
+<figure class="container" ngCloak>
+	<img class="thumbnail" ng-src="{{imgString}}" ng-show="loaded" data-id="{{thePainting.data._id}}"/>
+	<figcaption ng-show="loaded">By {{thePainting.data.mainAuthor}}</figcaption>
+</figure>

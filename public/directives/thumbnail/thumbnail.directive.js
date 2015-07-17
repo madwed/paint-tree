@@ -4,6 +4,7 @@ app.directive("thumbNail", function () {
 		scope: {
 			thePainting: "=painter"
 		},
+		controller: "ThumbnailCtrl",
 		templateUrl: "/directives/thumbnail/thumbnail.html"
 	}
 });

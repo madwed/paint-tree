@@ -1,8 +1,8 @@
+$thumbwidth: 168px;
+$thumbheight: 128px;
+
 .thumbnail{
 	border: 5px solid black;
-	width: 168px;
-	height: 128px;
-}
-img{
-	width:100%;
+	width: $thumbwidth;
+	height: $thumbheight;
 }
