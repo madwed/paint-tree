@@ -2,6 +2,7 @@ var router = require("express").Router();
 var AWS = require("aws-sdk");
 var s3 = new AWS.S3();
 var Promise = require("bluebird");
+var fs = require("fs");
 
 
 var models = require("../models");
@@ -11,7 +12,7 @@ var models = require("../models");
 router.get("/", function (req, res) {
 	//Route that serves up a number of root images from the database
 	//For viewing
-	models.Drawing.loadImages().then(function (images) {
+	models.Drawing.loadImages(10).then(function (images) {
 		res.json(images);
 	}).then(null, function (err) {
 		console.log("Error loading home page images", err);
@@ -20,10 +21,8 @@ router.get("/", function (req, res) {
 });
 
 router.post("/new", function (req, res) {
-	var image64 = req.body.img;
-	// console.log(buffer);
-	// console.log("data:image/png;base64," + buffer.toString("base64"));
-
+	// var image64 = new Buffer(req.body.img.replace("data:image/png;base64,", "base64"));
+	var image64 = new Buffer(req.body.img.replace("data:image/png;base64,", ""), "base64");
 	var draw = new models.Drawing();
 	draw.mainAuthor = req.body.author;
 	draw.save(function (err) {
@@ -32,7 +31,9 @@ router.post("/new", function (req, res) {
 		s3.putObject({
 			Bucket: "madpainter/drawings",
 			Key: drawKey,
-			Body: req.body.img
+			ContentEncoding: "base64",
+			ContentType: "image/png",
+			Body: image64
 		}, function (error, data) {
 			if(error) {
 				console.log(err);

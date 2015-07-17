@@ -9,3 +9,8 @@ $nav-color: #000;
 	color: invert($nav-color);
 }
 
+.container.nav-item{
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+}

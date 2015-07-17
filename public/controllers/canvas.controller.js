@@ -1,4 +1,4 @@
-app.controller("CanvasCtrl", function ($scope, $http) {
+app.controller("CanvasCtrl", function ($scope, $http, ImageFactory) {
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
 
@@ -15,5 +15,20 @@ app.controller("CanvasCtrl", function ($scope, $http) {
 				console.log(error);
 			});
 	});
+
+	if(ImageFactory.currentImg){
+		$scope.thePainting = ImageFactory.currentImg;
+		ImageFactory.currentImg = undefined;
+		var theImg = new Image();
+		theImg.onload = function () {
+			console.log(theImg.height);
+			ctx.drawImage(theImg, 0, 0, canvas.width, canvas.height);
+		}
+
+		$http.get($scope.thePainting.image).then(function(response){
+			theImg.src = response.data;
+			$scope.loaded = true;
+		});
+	}
 
 });

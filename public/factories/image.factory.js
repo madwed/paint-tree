@@ -8,14 +8,6 @@ app.factory("ImageFactory", function ($http) {
 					console.log(err);
 				});
 		},
-
-		getPainting: function (id) {
-			return $http.get("/paintings/" + id).
-				then(function (res) {
-					return res.data;
-				}, function (err) {
-					console.log(err);
-				});
-		}
+		currentImg: undefined
 	}
 });

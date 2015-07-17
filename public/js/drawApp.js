@@ -7,7 +7,7 @@ app.config(function ($stateProvider) {
 		templateUrl: "/templates/index.html"
 	//Can this .state somehow be called later... or the CanvasCtrl not be loaded until drawingBoard is loaded?
 	}).state("draw", {
-		url: "/paintings/new",
+		url: "/paint",
 		controller: "CanvasCtrl",
 		templateUrl: "/templates/drawingBoard.html"
 	});
