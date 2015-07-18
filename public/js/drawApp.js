@@ -10,7 +10,7 @@ app.config(function ($stateProvider) {
 			},
 			"map": {
 				controller: "SignInCtrl",
-				templateUrl: "/templates/signin.html"
+				templateUrl: "/templates/signup.html"
 			}
 		}
 	//Can this .state somehow be called later... or the CanvasCtrl not be loaded until drawingBoard is loaded?
@@ -23,7 +23,7 @@ app.config(function ($stateProvider) {
 			},
 			"map": {
 				controller: "SignInCtrl",
-				templateUrl: "/templates/signin.html"
+				templateUrl: "/templates/signup.html"
 			}
 		}
 	});

@@ -183,6 +183,12 @@ implement black and white background behind slider
   width: 168px;
   height: 128px; }
 
+.map {
+  position: absolute;
+  right: 0px;
+  border: 1px solid darkgrey;
+  width: 100%; }
+
 html, body {
   margin: 0px; }
 
@@ -196,6 +202,57 @@ html, body {
 
 .container {
   margin: 0px;
+  display: inline-block; }
+
+.col-lg-1 {
+  width: 7vw;
+  position: relative; }
+
+.col-lg-2 {
+  width: 15vw;
+  position: relative; }
+
+.col-lg-3 {
+  width: 23vw;
+  position: relative; }
+
+.col-lg-4 {
+  width: 31vw;
+  position: relative; }
+
+.col-lg-5 {
+  width: 39vw;
+  position: relative; }
+
+.col-lg-6 {
+  width: 47vw;
+  position: relative; }
+
+.col-lg-7 {
+  width: 55vw;
+  position: relative; }
+
+.col-lg-8 {
+  width: 63vw;
+  position: relative; }
+
+.col-lg-9 {
+  width: 71vw;
+  position: relative; }
+
+.col-lg-10 {
+  width: 79vw;
+  position: relative; }
+
+.col-lg-11 {
+  width: 87vw;
+  position: relative; }
+
+.col-lg-12 {
+  width: 95vw;
+  position: relative; }
+
+.cols {
   display: inline-block; }
 
 body {

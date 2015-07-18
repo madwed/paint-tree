@@ -12,8 +12,10 @@
 	<div class="nav-item container" ui-sref="home"><span>Home</span></div>
 	<div class="nav-item container" ui-sref="draw"><span>Draw</span></div>
 </div>
-<ui-view="map"></ui-view>
-<div class="row first-row" ng-controller="MainCtrl"><ui-view="body"></ui-view></div>
+<div class="row first-row" ng-controller="MainCtrl">
+	<div class="cols" ui-view="body"></div><!-- 
+	 --><div class="cols" ui-view="map"></div>
+</div>
 
 <!-- <script src="/js/bundle.js"></script> -->
 

@@ -2,7 +2,8 @@
 
 @import "navbar";
 @import "canvas";
-@import "thumbnail"; 
+@import "thumbnail";
+@import "signup"; 
 
 html, body{
 	margin: 0px;
@@ -20,7 +21,17 @@ html, body{
 	display: inline-block;
 }
 
+@for $i from 1 through 12 {
+	.col-lg-#{$i} {
+		width: (8vw * $i - 1vw);
+		position: relative;
+		
+	}
+}
 
+.cols{
+	display: inline-block;	
+}
 
 
 
