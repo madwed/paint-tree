@@ -102,8 +102,8 @@ router.post("/:paintingId", function (req, res) {
 				console.log(err);
 				res.send("Error");
 			} else {
-				console.log(data);
-				res.send("Saved");
+				console.log(req);
+				res.send(draw);
 			}
 		});
 		// console.log(awstest2);

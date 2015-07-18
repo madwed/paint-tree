@@ -12,32 +12,6 @@
   top: 50%;
   transform: translate(0, -50%); }
 
-.thumbnail {
-  border: 5px solid black;
-  width: 168px;
-  height: 128px; }
-
-html, body {
-  margin: 0px; }
-
-.row {
-  padding: 0vh 2vw;
-  margin: 0px; }
-
-.first-row {
-  position: relative;
-  top: 6vh; }
-
-.container {
-  margin: 0px;
-  display: inline-block; }
-
-body {
-  font: 75% "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; }
-
-.title {
-  margin: .2em; }
-
 #container {
   margin: 2.5em auto 0em;
   height: 51.83em; }
@@ -58,16 +32,16 @@ body {
   left: 2em;
   display: inline-block;
   margin: 0em 1.5em;
-  width: 829px;
-  height: 561px; }
+  width: 600px;
+  height: 400px; }
 
 .canvas {
   position: absolute;
   top: 0em;
   left: 0em;
   /*border: .833em solid black;*/
-  width: 829px;
-  height: 561px;
+  width: 600px;
+  height: 400px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -203,3 +177,29 @@ implement black and white background behind slider
 
 #life .ui-slider-handle {
   background: #aaaaaa; }
+
+.thumbnail {
+  border: 5px solid black;
+  width: 168px;
+  height: 128px; }
+
+html, body {
+  margin: 0px; }
+
+.row {
+  padding: 0vh 2vw;
+  margin: 0px; }
+
+.first-row {
+  position: relative;
+  top: 6vh; }
+
+.container {
+  margin: 0px;
+  display: inline-block; }
+
+body {
+  font: 75% "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; }
+
+.title {
+  margin: .2em; }

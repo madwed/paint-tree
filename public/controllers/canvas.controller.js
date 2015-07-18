@@ -21,14 +21,12 @@ app.controller("CanvasCtrl", function ($scope, $http, ImageFactory) {
 		ImageFactory.currentImg = undefined;
 		var theImg = new Image();
 		theImg.onload = function () {
-			console.log(theImg.height);
 			ctx.drawImage(theImg, 0, 0, canvas.width, canvas.height);
+			$scope.loaded = true;
 		}
 
-		$http.get($scope.thePainting.image).then(function(response){
-			theImg.src = response.data;
-			$scope.loaded = true;
-		});
+		theImg.src = $scope.thePainting.image;
 	}
+		
 
 });
