@@ -1,5 +1,5 @@
 app.controller("CanvasCtrl", function ($scope, $http, ImageFactory) {
-	var canvas = document.getElementById("canvas");
+	var canvas = document.getElementById("drawCanvas");
 	var ctx = canvas.getContext("2d");
 
 	var saveButton = document.getElementById("save");

@@ -2,28 +2,21 @@
 $canvas-width: 600px;
 $canvas-height: 400px;
 
-// #container{
-// 	margin:2.5em auto 0em;
-// 	height:51.83em;
-// }
-#base{
-	margin: 0em auto;
-}
 
-#buttons{
-	display: inline-block;
-	text-align: left; 	
-	width: 25%;
-}
 #canbox{
 	position: relative;
-	display: inline-block;
-	width: $canvas-width; height: $canvas-height;
+	display: block;
+	width: $canvas-width; 
+	height: $canvas-height;
+	border: 10px solid black;
+	width: 48vw;
+	height: 32vw;
 }
 .canvas {
-	position:absolute;
-	top:0em; left:0em;
-	width: $canvas-width; height: $canvas-height;
+	display: inline-block;
+	position: absolute;
+	width: $canvas-width; 
+	height: $canvas-height;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -31,6 +24,8 @@ $canvas-height: 400px;
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+	width: 48vw;
+	height: 32vw;
 }
 
 // #rand{

@@ -9,7 +9,7 @@ app.config(function ($stateProvider) {
 				templateUrl: "/templates/index.html"
 			},
 			"map": {
-				controller: "SignInCtrl",
+				controller: "SignupCtrl",
 				templateUrl: "/templates/signup.html"
 			}
 		}
@@ -22,7 +22,7 @@ app.config(function ($stateProvider) {
 				templateUrl: "/templates/drawingBoard.html"
 			},
 			"map": {
-				controller: "SignInCtrl",
+				controller: "SignupCtrl",
 				templateUrl: "/templates/signup.html"
 			}
 		}

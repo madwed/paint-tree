@@ -7,7 +7,9 @@
 
 html, body{
 	margin: 0px;
+	font: 75% "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }
+
 .row{
 	padding: 0vh 2vw;
 	margin: 0px;
@@ -29,9 +31,6 @@ html, body{
 		
 	}
 }
-.cols{
-	display: inline-block;	
-}
 
 .bodyBox{
 	// background-color: red;
@@ -43,11 +42,6 @@ html, body{
 
 
 
-body{
-	font: 75% "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-}
 
-.title{
-	margin: .2em;
-}
+
 

@@ -12,24 +12,18 @@
   top: 50%;
   transform: translate(0, -50%); }
 
-#base {
-  margin: 0em auto; }
-
-#buttons {
-  display: inline-block;
-  text-align: left;
-  width: 25%; }
-
 #canbox {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 600px;
-  height: 400px; }
+  height: 400px;
+  border: 10px solid black;
+  width: 48vw;
+  height: 32vw; }
 
 .canvas {
+  display: inline-block;
   position: absolute;
-  top: 0em;
-  left: 0em;
   width: 600px;
   height: 400px;
   -webkit-touch-callout: none;
@@ -38,23 +32,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
-  user-select: none; }
-
-#canvasFrame {
-  position: absolute;
-  top: -2%;
-  left: -1.5%;
-  width: 103%;
-  height: 104%;
-  background: black; }
-
-#canvasFrameMat {
-  position: absolute;
-  top: 0em;
-  left: 0em;
-  width: 100%;
-  height: 100%;
-  background: white; }
+  user-select: none;
+  width: 48vw;
+  height: 32vw; }
 
 /*
 implement black and white background behind slider
@@ -77,7 +57,8 @@ implement black and white background behind slider
   border-radius: 5px; }
 
 html, body {
-  margin: 0px; }
+  margin: 0px;
+  font: 75% "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; }
 
 .row {
   padding: 0vh 2vw;
@@ -139,12 +120,3 @@ html, body {
 .col-lg-12 {
   width: 95vw;
   position: relative; }
-
-.cols {
-  display: inline-block; }
-
-body {
-  font: 75% "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; }
-
-.title {
-  margin: .2em; }
