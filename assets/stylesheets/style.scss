@@ -14,11 +14,12 @@ html, body{
 }
 .first-row{
 	position: relative;
-	top: 6vh;
+	top: 7vh;
 }
 .container{
 	margin: 0px;
 	display: inline-block;
+	vertical-align: top;
 }
 
 @for $i from 1 through 12 {
@@ -28,9 +29,15 @@ html, body{
 		
 	}
 }
-
 .cols{
 	display: inline-block;	
+}
+
+.bodyBox{
+	// background-color: red;
+}
+.mapBox{
+	// background-color: blue;
 }
 
 
