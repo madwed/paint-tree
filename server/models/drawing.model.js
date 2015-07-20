@@ -8,11 +8,7 @@ var drawingSchema = new mongoose.Schema({
 	lastAccessed: {
 		type: Date,
 		default: Date.now
-	},
-	_id: {
-        type: String,
-        unique: true
-    }
+	}
 });
 
 drawingSchema.virtual("link").get(function () {

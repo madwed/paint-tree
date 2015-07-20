@@ -17,11 +17,7 @@ var userSchema = new mongoose.Schema({
 	lastAccessed: {
 		type: Date,
 		default: Date.now
-	},
-	_id: {
-        type: String,
-        unique: true
-    }
+	}
 });
 
 userSchema.statics.loginAttempt = function (reqBody) {

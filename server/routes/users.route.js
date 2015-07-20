@@ -6,7 +6,7 @@ var s3 = new AWS.S3();
 var User = require("../models/user.model");
 
 
-router.post("/signup", function (req, res, next) {
+router.post("/signin", function (req, res, next) {
 	console.log(req.body);
     User.create(req.body)
         .then(function (user) {
@@ -19,7 +19,7 @@ router.put("/signin", function (req, res, next) {
     User.loginAttempt(req.body)
         .then(function (user) {
             if (!user) { throw "You don't exist"; }
-            req.session.userId = user.email;
+            //req.session.userId = user.email;
             res.json(user);
         }).then(null, function (error) {
             console.log(error);

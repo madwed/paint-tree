@@ -1,7 +1,17 @@
-app.factory("Auth", function () {
+app.factory("Auth", function ($http) {
 	return {
 		signin: function (credentials) {
-			return $http.put("https://ec2-52-3-59-46.compute-1.amazonaws.com:8080/users/signin", credentials).
+			var method = "POST";
+			if (credentials.login) {
+				method = "PUT";
+			}
+			var req = {
+				method: method,
+				url: "https://ec2-52-3-59-46.compute-1.amazonaws.com:8080/users/signin",
+				data: credentials
+			};
+
+			return $http(req).
 			success(function (data) {
 				console.log("signin success", data);
 				return data;
