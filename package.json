@@ -4,7 +4,7 @@
   "description": "A drawing platform where users can share their works.",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js"
+    "test": "node server/app.js"
   },
   "repository": {
     "type": "git",
