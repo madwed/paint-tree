@@ -7,14 +7,14 @@ var Promise = require("bluebird");
 var fs = require("fs");
 
 
-var models = require("../models");
+var Drawing = require("./models/drawing.model.js");
 
 
 // Route: /paintings/
 router.get("/", function (req, res) {
 	//Route that serves up a number of root images from the database
 	//For viewing
-	models.Drawing.loadImages(10).then(function (images) {
+	Drawing.loadImages(10).then(function (images) {
 		res.json(images);
 	}).then(null, function (err) {
 		console.log("Error loading home page images", err);
@@ -36,7 +36,7 @@ router.post("/", function (req, res, next) {
 
 router.post("/new", function (req, res) {
 	var image64 = new Buffer(req.body.img.replace("data:image/png;base64,", ""), "base64");
-	var draw = new models.Drawing();
+	var draw = new Drawing();
 	draw.mainAuthor = req.body.author;
 	draw.save(function (err) {
 		if (err) { throw err; }
@@ -99,7 +99,7 @@ router.post("/:paintingId", function (req, res) {
 	// console.log(buffer);
 	// console.log("data:image/png;base64," + buffer.toString("base64"));
 
-	var draw = new models.Drawing();
+	var draw = new Drawing();
 	draw.mainAuthor = req.body.author;
 	draw.save(function (err) {
 		if (err) { throw err; }

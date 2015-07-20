@@ -34,9 +34,9 @@ drawingSchema.virtual("link").get(function () {
 // 	});
 // };
 
-var resolveImage = function(imgData){
+var resolveImage = function (imgData) {
 	return {data: imgData, image: imgData.link};
-}
+};
 
 
 drawingSchema.statics.loadImages = function (limit) {
@@ -52,6 +52,4 @@ drawingSchema.statics.loadImages = function (limit) {
 
 var Drawing = mongoose.model("Drawing", drawingSchema);
 
-module.exports = {
-	Drawing: Drawing
-};
+module.exports = Drawing;
