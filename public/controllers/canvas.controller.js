@@ -8,7 +8,6 @@ app.controller("CanvasCtrl", function ($scope, $http, ImageFactory) {
 		console.log("Saving");
 		$http.post("https://ec2-52-3-59-46.compute-1.amazonaws.com:8080/paintings/new", {img: canvasData, author: "Isaac Madwed"}).
 			success(function (data) {
-				console.log("Saved");
 				console.log(data);
 			}).
 			error(function (error) {
