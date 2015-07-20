@@ -1,9 +1,8 @@
-app.controller("SignupCtrl", function ($scope) {
+app.controller("SignupCtrl", function ($scope, Auth) {
 	$scope.signup = function (signin) {
 		if (signin) {
 			$scope.credentials.login = true;
 		}
-		console.log($scope.credentials);
-        // Auth.signup($scope.credentials);
+        Auth.signin($scope.credentials);
     };
 });
