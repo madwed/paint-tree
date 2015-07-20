@@ -1,7 +1,7 @@
 app.factory("ImageFactory", function ($http) {
 	return {
 		getPaintings: function () {
-			return $http.get("http://localhost:4040/paintings").
+			return $http.get("http://ec2-52-3-59-46.compute-1.amazonaws.com:4040/paintings").
 				success(function (res) {
 					return res.data;
 				}).
@@ -13,4 +13,4 @@ app.factory("ImageFactory", function ($http) {
 	};
 });
 
-//http://ec2-52-3-59-46.compute-1.amazonaws.com:4040/paintings
+//
