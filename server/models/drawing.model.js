@@ -22,7 +22,7 @@ drawingSchema.virtual("link").get(function () {
 // var s3FindImage = function(imgData){
 // 	return new Promise(function(resolve, reject){
 // 		s3.getObject({
-// 			Bucket: "/madpainter/drawings", 
+// 			Bucket: "/madpainter/drawings",
 // 			Key: imgData.link,
 // 			ResponseContentType: 'utf8'
 // 		}, function(err, image){
