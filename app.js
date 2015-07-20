@@ -4,15 +4,15 @@
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
-var router = require(path.join(__dirname, "/routes"));
+var router = require(path.join(__dirname, "../routes"));
 var sass = require("node-sass-middleware");
 
 var app = express();
 
 app.use(
   sass({
-    src: __dirname + '/assets', //where the sass files are 
-    dest: __dirname + '/public', //where css should go
+    src: path.join(__dirname, "../assets"), //where the sass files are
+    dest: path.join(__dirname, "../public"), //where css should go
     debug: true
   })
 );
@@ -20,8 +20,8 @@ app.use(
 app.use(bodyParser.urlencoded({extended: false, limit: "700kb"}));
 app.use(bodyParser.json({limit: "700kb"}));
 
-app.use("/bower_components", express.static(path.join(__dirname, "/bower_components")));
-app.use(express.static(path.join(__dirname, "/public")));
+app.use("/bower_components", express.static(path.join(__dirname, "../bower_components")));
+app.use(express.static(path.join(__dirname, "../public")));
 app.use("/", router);
 
 
@@ -40,6 +40,4 @@ app.use(function (err, req, res) {
     res.send(err);
 });
 
-app.listen(3000, function () {
-	console.log("The server is listening closely on port 3000");
-});
+module.exports = app;

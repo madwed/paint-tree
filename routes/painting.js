@@ -1,3 +1,5 @@
+
+
 var router = require("express").Router();
 var AWS = require("aws-sdk");
 var s3 = new AWS.S3();
@@ -20,8 +22,19 @@ router.get("/", function (req, res) {
 	});
 });
 
+router.get("/:paintingId", function (req, res) {
+	//Route that serves a painting to the canvas
+});
+
+router.post("/", function (req, res, next) {
+	if(!req.session.user) {
+		res.send("Please sign in");
+	}else {
+		next();
+	}
+});
+
 router.post("/new", function (req, res) {
-	// var image64 = new Buffer(req.body.img.replace("data:image/png;base64,", "base64"));
 	var image64 = new Buffer(req.body.img.replace("data:image/png;base64,", ""), "base64");
 	var draw = new models.Drawing();
 	draw.mainAuthor = req.body.author;
@@ -47,9 +60,7 @@ router.post("/new", function (req, res) {
 	});
 });
 
-router.get("/:paintingId", function (req, res) {
-	//Route that serves a painting to the canvas
-});
+
 
 router.post("/:paintingId", function (req, res) {
 	//Route that adds a new child painting to the database
