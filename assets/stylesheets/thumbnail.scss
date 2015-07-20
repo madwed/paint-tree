@@ -1,8 +1,14 @@
 $thumbwidth: 168px;
 $thumbheight: 128px;
 
-.thumbnail{
+.thumbnailImg{
 	border: 5px solid black;
-	width: $thumbwidth;
-	height: $thumbheight;
+	width: 100%;
+}
+
+.thumbnailBox{
+	display: inline-block;
+	width: 25%;
+	padding: 1% 2%;
+
 }

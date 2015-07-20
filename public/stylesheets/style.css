@@ -8,9 +8,19 @@
   color: white; }
 
 .container.nav-item {
+  margin: 0% 1%; }
+  .container.nav-item:hover {
+    font-size: 1.05em; }
+
+.nav-left, .nav-right {
+  display: inline-block;
+  width: 48vw;
   position: relative;
   top: 50%;
   transform: translate(0, -50%); }
+
+.nav-right {
+  text-align: right; }
 
 #canbox {
   position: relative;
@@ -41,10 +51,14 @@ implement black and white background behind slider
 #red, #green, #blue, #alpha {
 	background: black;
 }*/
-.thumbnail {
+.thumbnailImg {
   border: 5px solid black;
-  width: 168px;
-  height: 128px; }
+  width: 100%; }
+
+.thumbnailBox {
+  display: inline-block;
+  width: 25%;
+  padding: 1% 2%; }
 
 .map {
   position: absolute;
@@ -58,7 +72,8 @@ implement black and white background behind slider
 
 html, body {
   margin: 0px;
-  font: 75% "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; }
+  cursor: default;
+  font: .75em "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; }
 
 .row {
   padding: 0vh 2vw;
@@ -72,6 +87,10 @@ html, body {
   margin: 0px;
   display: inline-block;
   vertical-align: top; }
+
+.home {
+  align-content: center;
+  text-align: center; }
 
 .col-lg-1 {
   width: 7vw;

@@ -9,8 +9,15 @@
 </head>
 <body ng-app="DrawApp">
 <div class="navbar row">
-	<div class="nav-item container" ui-sref="home"><span>Home</span></div>
-	<div class="nav-item container" ui-sref="draw"><span>Draw</span></div>
+	<div class="nav-left">
+		<div class="nav-item container" ui-sref="home"><span>Home</span></div>
+		<div class="nav-item container" ui-sref="draw"><span>Draw</span></div>
+		<div class="nav-item container" ui-sref="draw"><span>Users</span></div>
+		<div class="nav-item container" ui-sref="draw"><span>Tree</span></div>
+	</div><!-- 
+ --><div class="nav-right">
+		<div class="nav-item container" ui-sref="home"><span>Signup</span></div>
+	</div>
 </div>
 <div class="row first-row" ng-controller="MainCtrl">
 	<div class="container bodyBox" ui-view="body"></div><!-- 

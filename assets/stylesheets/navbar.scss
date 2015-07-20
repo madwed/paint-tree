@@ -10,7 +10,20 @@ $nav-color: #000;
 }
 
 .container.nav-item{
+	margin: 0% 1%;
+	&:hover{
+		font-size: 1.05em;
+	}
+}
+
+.nav-left, .nav-right{
+	display: inline-block;
+	width: 48vw;
 	position: relative;
 	top: 50%;
 	transform: translate(0, -50%);
+}
+
+.nav-right{
+	text-align: right;
 }
