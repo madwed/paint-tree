@@ -7,7 +7,7 @@ var Promise = require("bluebird");
 var fs = require("fs");
 
 
-var Drawing = require("./models/drawing.model.js");
+var Drawing = require("../models/drawing.model.js");
 
 
 // Route: /paintings/

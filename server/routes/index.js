@@ -6,8 +6,8 @@ router.get("/", function (req, res) {
 	res.sendFile(path.join(__dirname, "../layout.html"));
 });
 
-var paintingsRoute = require("./painting");
-var usersRoute = require("./users");
+var paintingsRoute = require("./painting.route");
+var usersRoute = require("./users.route");
 router.use("/paintings", paintingsRoute);
 router.use("/users", usersRoute);
 
