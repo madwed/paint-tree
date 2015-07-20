@@ -2,9 +2,10 @@
 	<div class="map signup" ng-controller="SignupCtrl">
 		<h1>Sign up. Sign in.</h1>
 		<label for="email">Email:</label>
-		<input name="email" />
+		<input name="email" ng-model="credentials.email"/>
 		<label for="password">Password:</label>
-		<input name="password" />
+		<input name="password" ng-model="credentials.password"/>
+		<button ng-click="signup()">Submit</button>
 		<p>A free account gives you access to voting and saving.</p>
 	</div>
 </div>
