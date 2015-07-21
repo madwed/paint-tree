@@ -12,7 +12,12 @@ var fs = require("fs");
 var app = express();
 
 app.use(session({
-  secret: fs.readFileSync(path.join(__dirname, "./sessionKey.txt"))
+  secret: fs.readFileSync(path.join(__dirname, "./sessionKey.txt")),
+  resave: false,
+  saveUninitialize: false,
+  cookie: {
+    secure: true
+  }
 }));
 
 app.use(

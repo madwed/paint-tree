@@ -27,7 +27,7 @@ router.get("/:paintingId", function (req, res) {
 });
 
 router.post("/", function (req, res, next) {
-	if(!req.session.user) {
+	if(!req.session.userId) {
 		res.send("Please sign in");
 	}else {
 		next();
@@ -94,7 +94,7 @@ router.post("/:paintingId", function (req, res) {
   //         }
   //    });
 
-	
+
 	var image64 = req.body.img;
 	// console.log(buffer);
 	// console.log("data:image/png;base64," + buffer.toString("base64"));

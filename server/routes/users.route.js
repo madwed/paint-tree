@@ -18,7 +18,7 @@ router.put("/signin", function (req, res, next) {
     User.loginAttempt(req.body)
         .then(function (user) {
             if (!user) { throw "You don't exist"; }
-            //req.session.userId = user.email;
+            req.session.userId = user.email;
             res.json(user);
         }).then(null, function (error) {
             console.log(error);
