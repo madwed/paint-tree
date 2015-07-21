@@ -4,3 +4,4 @@
 **/bower_components
 **/cert.pem
 **/key.pem
+**/sessionKey.txt

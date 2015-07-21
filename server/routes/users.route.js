@@ -5,9 +5,8 @@ var AWS = require("aws-sdk");
 var s3 = new AWS.S3();
 var User = require("../models/user.model");
 
-
+//Create an account
 router.post("/signin", function (req, res, next) {
-	console.log(req.body);
     User.create(req.body)
         .then(function (user) {
             res.status(201).json(user);

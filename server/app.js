@@ -2,12 +2,18 @@
 "use strict";
 
 var express = require("express");
+var session = require("express-session");
 var path = require("path");
 var bodyParser = require("body-parser");
 var router = require(path.join(__dirname, "./routes"));
 var sass = require("node-sass-middleware");
+var fs = require("fs");
 
 var app = express();
+
+app.use(session({
+  secret: fs.readFileSync(path.join(__dirname, "./sessionKey.txt"))
+}));
 
 app.use(
   sass({
