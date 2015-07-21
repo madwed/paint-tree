@@ -144,6 +144,135 @@ implement black and white background behind slider
 #life .ui-slider-handle {
   background: #aaaaaa; }
 
+/**
+ * Angular JS slider directive
+ *
+ * (c) Rafal Zajac <rzajac@gmail.com>
+ * http://github.com/rzajac/angularjs-slider
+ *
+ * Licensed under the MIT license
+ */
+/* Slider colors */
+/* Slider size parameters */
+rzslider {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  margin: 5px 0 15px 0;
+  vertical-align: middle; }
+
+rzslider span {
+  position: absolute;
+  display: inline-block;
+  white-space: nowrap; }
+
+rzslider span.rz-base {
+  width: 100%;
+  height: 100%;
+  padding: 0; }
+
+rzslider span.rz-bar {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+
+rzslider.red span.rz-bar {
+  background: black;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, black 0%, red 75%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, black), color-stop(75%, red));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, black 0%, #d30000 50%, red 75%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, black 0%, red 75%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, black 0%, red 75%);
+  /* IE10+ */
+  background: linear-gradient(to right, black 0%, red 75%);
+  /* W3C */ }
+
+rzslider.green span.rz-bar {
+  background: black;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, black 0%, #18b500 75%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, black), color-stop(75%, #18b500));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, black 0%, #18b500 75%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, black 0%, #18b500 75%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, black 0%, #18b500 75%);
+  /* IE10+ */
+  background: linear-gradient(to right, black 0%, #18b500 75%);
+  /* W3C */ }
+
+rzslider.blue span.rz-bar {
+  background: black;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, black 0%, #006eff 75%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, black), color-stop(75%, #006eff));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, black 0%, #006eff 75%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, black 0%, #006eff 75%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, black 0%, #006eff 75%);
+  /* IE10+ */
+  background: linear-gradient(to right, black 0%, #006eff 75%);
+  /* W3C */ }
+
+rzslider.alpha span.rz-bar {
+  background: black;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, gainsboro 0%, black 75%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, gainsboro), color-stop(75%, black));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, gainsboro 0%, black 75%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, gainsboro 0%, black 75%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, gainsboro 0%, black 75%);
+  /* IE10+ */
+  background: linear-gradient(to right, gainsboro 0%, black 75%);
+  /* W3C */ }
+
+rzslider span.rz-pointer {
+  z-index: 2;
+  width: 8px;
+  height: 8px;
+  top: -2px;
+  cursor: pointer;
+  background-color: #000;
+  clip-path: polygon(calc(50% + 8px * cos(0deg)) calc(50% + 8px * sin(0deg)), calc(50% + 8px * cos(-7.2deg)) calc(50% + 8px * sin(-7.2deg)), calc(50% + 8px * cos(-14.4deg)) calc(50% + 8px * sin(-14.4deg)), calc(50% + 8px * cos(-21.6deg)) calc(50% + 8px * sin(-21.6deg)), calc(50% + 8px * cos(-28.8deg)) calc(50% + 8px * sin(-28.8deg)), calc(50% + 8px * cos(-36deg)) calc(50% + 8px * sin(-36deg)), calc(50% + 8px * cos(-43.2deg)) calc(50% + 8px * sin(-43.2deg)), calc(50% + 8px * cos(-50.4deg)) calc(50% + 8px * sin(-50.4deg)), calc(50% + 8px * cos(-57.6deg)) calc(50% + 8px * sin(-57.6deg)), calc(50% + 8px * cos(-64.8deg)) calc(50% + 8px * sin(-64.8deg)), calc(50% + 8px * cos(-72deg)) calc(50% + 8px * sin(-72deg)), calc(50% + 8px * cos(-79.2deg)) calc(50% + 8px * sin(-79.2deg)), calc(50% + 8px * cos(-86.4deg)) calc(50% + 8px * sin(-86.4deg)), calc(50% + 8px * cos(-93.6deg)) calc(50% + 8px * sin(-93.6deg)), calc(50% + 8px * cos(-100.8deg)) calc(50% + 8px * sin(-100.8deg)), calc(50% + 8px * cos(-108deg)) calc(50% + 8px * sin(-108deg)), calc(50% + 8px * cos(-115.2deg)) calc(50% + 8px * sin(-115.2deg)), calc(50% + 8px * cos(-122.4deg)) calc(50% + 8px * sin(-122.4deg)), calc(50% + 8px * cos(-129.6deg)) calc(50% + 8px * sin(-129.6deg)), calc(50% + 8px * cos(-136.8deg)) calc(50% + 8px * sin(-136.8deg)), calc(50% + 8px * cos(-144deg)) calc(50% + 8px * sin(-144deg)), calc(50% + 8px * cos(-151.2deg)) calc(50% + 8px * sin(-151.2deg)), calc(50% + 8px * cos(-158.4deg)) calc(50% + 8px * sin(-158.4deg)), calc(50% + 8px * cos(-165.6deg)) calc(50% + 8px * sin(-165.6deg)), calc(50% + 8px * cos(-172.8deg)) calc(50% + 8px * sin(-172.8deg)), calc(50% + 8px * cos(-180deg)) calc(50% + 8px * sin(-180deg)), calc(50% + 8px * cos(-187.2deg)) calc(50% + 8px * sin(-187.2deg)), calc(50% + 8px * cos(-194.4deg)) calc(50% + 8px * sin(-194.4deg)), calc(50% + 8px * cos(-201.6deg)) calc(50% + 8px * sin(-201.6deg)), calc(50% + 8px * cos(-208.8deg)) calc(50% + 8px * sin(-208.8deg)), calc(50% + 8px * cos(-216deg)) calc(50% + 8px * sin(-216deg)), calc(50% + 8px * cos(-223.2deg)) calc(50% + 8px * sin(-223.2deg)), calc(50% + 8px * cos(-230.4deg)) calc(50% + 8px * sin(-230.4deg)), calc(50% + 8px * cos(-237.6deg)) calc(50% + 8px * sin(-237.6deg)), calc(50% + 8px * cos(-244.8deg)) calc(50% + 8px * sin(-244.8deg)), calc(50% + 8px * cos(-252deg)) calc(50% + 8px * sin(-252deg)), calc(50% + 8px * cos(-259.2deg)) calc(50% + 8px * sin(-259.2deg)), calc(50% + 8px * cos(-266.4deg)) calc(50% + 8px * sin(-266.4deg)), calc(50% + 8px * cos(-273.6deg)) calc(50% + 8px * sin(-273.6deg)), calc(50% + 8px * cos(-280.8deg)) calc(50% + 8px * sin(-280.8deg)), calc(50% + 8px * cos(-288deg)) calc(50% + 8px * sin(-288deg)), calc(50% + 8px * cos(-295.2deg)) calc(50% + 8px * sin(-295.2deg)), calc(50% + 8px * cos(-302.4deg)) calc(50% + 8px * sin(-302.4deg)), calc(50% + 8px * cos(-309.6deg)) calc(50% + 8px * sin(-309.6deg)), calc(50% + 8px * cos(-316.8deg)) calc(50% + 8px * sin(-316.8deg)), calc(50% + 8px * cos(-324deg)) calc(50% + 8px * sin(-324deg)), calc(50% + 8px * cos(-331.2deg)) calc(50% + 8px * sin(-331.2deg)), calc(50% + 8px * cos(-338.4deg)) calc(50% + 8px * sin(-338.4deg)), calc(50% + 8px * cos(-345.6deg)) calc(50% + 8px * sin(-345.6deg)), calc(50% + 8px * cos(-352.8deg)) calc(50% + 8px * sin(-352.8deg)), calc(50% + 8px * cos(-360deg)) calc(50% + 8px * sin(-360deg)), calc(50% + 2px * cos(0deg)) calc(50% + 2px * sin(0deg)), calc(50% + 2px * cos(7.2deg)) calc(50% + 2px * sin(7.2deg)), calc(50% + 2px * cos(14.4deg)) calc(50% + 2px * sin(14.4deg)), calc(50% + 2px * cos(21.6deg)) calc(50% + 2px * sin(21.6deg)), calc(50% + 2px * cos(28.8deg)) calc(50% + 2px * sin(28.8deg)), calc(50% + 2px * cos(36deg)) calc(50% + 2px * sin(36deg)), calc(50% + 2px * cos(43.2deg)) calc(50% + 2px * sin(43.2deg)), calc(50% + 2px * cos(50.4deg)) calc(50% + 2px * sin(50.4deg)), calc(50% + 2px * cos(57.6deg)) calc(50% + 2px * sin(57.6deg)), calc(50% + 2px * cos(64.8deg)) calc(50% + 2px * sin(64.8deg)), calc(50% + 2px * cos(72deg)) calc(50% + 2px * sin(72deg)), calc(50% + 2px * cos(79.2deg)) calc(50% + 2px * sin(79.2deg)), calc(50% + 2px * cos(86.4deg)) calc(50% + 2px * sin(86.4deg)), calc(50% + 2px * cos(93.6deg)) calc(50% + 2px * sin(93.6deg)), calc(50% + 2px * cos(100.8deg)) calc(50% + 2px * sin(100.8deg)), calc(50% + 2px * cos(108deg)) calc(50% + 2px * sin(108deg)), calc(50% + 2px * cos(115.2deg)) calc(50% + 2px * sin(115.2deg)), calc(50% + 2px * cos(122.4deg)) calc(50% + 2px * sin(122.4deg)), calc(50% + 2px * cos(129.6deg)) calc(50% + 2px * sin(129.6deg)), calc(50% + 2px * cos(136.8deg)) calc(50% + 2px * sin(136.8deg)), calc(50% + 2px * cos(144deg)) calc(50% + 2px * sin(144deg)), calc(50% + 2px * cos(151.2deg)) calc(50% + 2px * sin(151.2deg)), calc(50% + 2px * cos(158.4deg)) calc(50% + 2px * sin(158.4deg)), calc(50% + 2px * cos(165.6deg)) calc(50% + 2px * sin(165.6deg)), calc(50% + 2px * cos(172.8deg)) calc(50% + 2px * sin(172.8deg)), calc(50% + 2px * cos(180deg)) calc(50% + 2px * sin(180deg)), calc(50% + 2px * cos(187.2deg)) calc(50% + 2px * sin(187.2deg)), calc(50% + 2px * cos(194.4deg)) calc(50% + 2px * sin(194.4deg)), calc(50% + 2px * cos(201.6deg)) calc(50% + 2px * sin(201.6deg)), calc(50% + 2px * cos(208.8deg)) calc(50% + 2px * sin(208.8deg)), calc(50% + 2px * cos(216deg)) calc(50% + 2px * sin(216deg)), calc(50% + 2px * cos(223.2deg)) calc(50% + 2px * sin(223.2deg)), calc(50% + 2px * cos(230.4deg)) calc(50% + 2px * sin(230.4deg)), calc(50% + 2px * cos(237.6deg)) calc(50% + 2px * sin(237.6deg)), calc(50% + 2px * cos(244.8deg)) calc(50% + 2px * sin(244.8deg)), calc(50% + 2px * cos(252deg)) calc(50% + 2px * sin(252deg)), calc(50% + 2px * cos(259.2deg)) calc(50% + 2px * sin(259.2deg)), calc(50% + 2px * cos(266.4deg)) calc(50% + 2px * sin(266.4deg)), calc(50% + 2px * cos(273.6deg)) calc(50% + 2px * sin(273.6deg)), calc(50% + 2px * cos(280.8deg)) calc(50% + 2px * sin(280.8deg)), calc(50% + 2px * cos(288deg)) calc(50% + 2px * sin(288deg)), calc(50% + 2px * cos(295.2deg)) calc(50% + 2px * sin(295.2deg)), calc(50% + 2px * cos(302.4deg)) calc(50% + 2px * sin(302.4deg)), calc(50% + 2px * cos(309.6deg)) calc(50% + 2px * sin(309.6deg)), calc(50% + 2px * cos(316.8deg)) calc(50% + 2px * sin(316.8deg)), calc(50% + 2px * cos(324deg)) calc(50% + 2px * sin(324deg)), calc(50% + 2px * cos(331.2deg)) calc(50% + 2px * sin(331.2deg)), calc(50% + 2px * cos(338.4deg)) calc(50% + 2px * sin(338.4deg)), calc(50% + 2px * cos(345.6deg)) calc(50% + 2px * sin(345.6deg)), calc(50% + 2px * cos(352.8deg)) calc(50% + 2px * sin(352.8deg)), calc(50% + 2px * cos(360deg)) calc(50% + 2px * sin(360deg)));
+  -webkit-clip-path: polygon(calc(50% + 8px * cos(0deg)) calc(50% + 8px * sin(0deg)), calc(50% + 8px * cos(-7.2deg)) calc(50% + 8px * sin(-7.2deg)), calc(50% + 8px * cos(-14.4deg)) calc(50% + 8px * sin(-14.4deg)), calc(50% + 8px * cos(-21.6deg)) calc(50% + 8px * sin(-21.6deg)), calc(50% + 8px * cos(-28.8deg)) calc(50% + 8px * sin(-28.8deg)), calc(50% + 8px * cos(-36deg)) calc(50% + 8px * sin(-36deg)), calc(50% + 8px * cos(-43.2deg)) calc(50% + 8px * sin(-43.2deg)), calc(50% + 8px * cos(-50.4deg)) calc(50% + 8px * sin(-50.4deg)), calc(50% + 8px * cos(-57.6deg)) calc(50% + 8px * sin(-57.6deg)), calc(50% + 8px * cos(-64.8deg)) calc(50% + 8px * sin(-64.8deg)), calc(50% + 8px * cos(-72deg)) calc(50% + 8px * sin(-72deg)), calc(50% + 8px * cos(-79.2deg)) calc(50% + 8px * sin(-79.2deg)), calc(50% + 8px * cos(-86.4deg)) calc(50% + 8px * sin(-86.4deg)), calc(50% + 8px * cos(-93.6deg)) calc(50% + 8px * sin(-93.6deg)), calc(50% + 8px * cos(-100.8deg)) calc(50% + 8px * sin(-100.8deg)), calc(50% + 8px * cos(-108deg)) calc(50% + 8px * sin(-108deg)), calc(50% + 8px * cos(-115.2deg)) calc(50% + 8px * sin(-115.2deg)), calc(50% + 8px * cos(-122.4deg)) calc(50% + 8px * sin(-122.4deg)), calc(50% + 8px * cos(-129.6deg)) calc(50% + 8px * sin(-129.6deg)), calc(50% + 8px * cos(-136.8deg)) calc(50% + 8px * sin(-136.8deg)), calc(50% + 8px * cos(-144deg)) calc(50% + 8px * sin(-144deg)), calc(50% + 8px * cos(-151.2deg)) calc(50% + 8px * sin(-151.2deg)), calc(50% + 8px * cos(-158.4deg)) calc(50% + 8px * sin(-158.4deg)), calc(50% + 8px * cos(-165.6deg)) calc(50% + 8px * sin(-165.6deg)), calc(50% + 8px * cos(-172.8deg)) calc(50% + 8px * sin(-172.8deg)), calc(50% + 8px * cos(-180deg)) calc(50% + 8px * sin(-180deg)), calc(50% + 8px * cos(-187.2deg)) calc(50% + 8px * sin(-187.2deg)), calc(50% + 8px * cos(-194.4deg)) calc(50% + 8px * sin(-194.4deg)), calc(50% + 8px * cos(-201.6deg)) calc(50% + 8px * sin(-201.6deg)), calc(50% + 8px * cos(-208.8deg)) calc(50% + 8px * sin(-208.8deg)), calc(50% + 8px * cos(-216deg)) calc(50% + 8px * sin(-216deg)), calc(50% + 8px * cos(-223.2deg)) calc(50% + 8px * sin(-223.2deg)), calc(50% + 8px * cos(-230.4deg)) calc(50% + 8px * sin(-230.4deg)), calc(50% + 8px * cos(-237.6deg)) calc(50% + 8px * sin(-237.6deg)), calc(50% + 8px * cos(-244.8deg)) calc(50% + 8px * sin(-244.8deg)), calc(50% + 8px * cos(-252deg)) calc(50% + 8px * sin(-252deg)), calc(50% + 8px * cos(-259.2deg)) calc(50% + 8px * sin(-259.2deg)), calc(50% + 8px * cos(-266.4deg)) calc(50% + 8px * sin(-266.4deg)), calc(50% + 8px * cos(-273.6deg)) calc(50% + 8px * sin(-273.6deg)), calc(50% + 8px * cos(-280.8deg)) calc(50% + 8px * sin(-280.8deg)), calc(50% + 8px * cos(-288deg)) calc(50% + 8px * sin(-288deg)), calc(50% + 8px * cos(-295.2deg)) calc(50% + 8px * sin(-295.2deg)), calc(50% + 8px * cos(-302.4deg)) calc(50% + 8px * sin(-302.4deg)), calc(50% + 8px * cos(-309.6deg)) calc(50% + 8px * sin(-309.6deg)), calc(50% + 8px * cos(-316.8deg)) calc(50% + 8px * sin(-316.8deg)), calc(50% + 8px * cos(-324deg)) calc(50% + 8px * sin(-324deg)), calc(50% + 8px * cos(-331.2deg)) calc(50% + 8px * sin(-331.2deg)), calc(50% + 8px * cos(-338.4deg)) calc(50% + 8px * sin(-338.4deg)), calc(50% + 8px * cos(-345.6deg)) calc(50% + 8px * sin(-345.6deg)), calc(50% + 8px * cos(-352.8deg)) calc(50% + 8px * sin(-352.8deg)), calc(50% + 8px * cos(-360deg)) calc(50% + 8px * sin(-360deg)), calc(50% + 2px * cos(0deg)) calc(50% + 2px * sin(0deg)), calc(50% + 2px * cos(7.2deg)) calc(50% + 2px * sin(7.2deg)), calc(50% + 2px * cos(14.4deg)) calc(50% + 2px * sin(14.4deg)), calc(50% + 2px * cos(21.6deg)) calc(50% + 2px * sin(21.6deg)), calc(50% + 2px * cos(28.8deg)) calc(50% + 2px * sin(28.8deg)), calc(50% + 2px * cos(36deg)) calc(50% + 2px * sin(36deg)), calc(50% + 2px * cos(43.2deg)) calc(50% + 2px * sin(43.2deg)), calc(50% + 2px * cos(50.4deg)) calc(50% + 2px * sin(50.4deg)), calc(50% + 2px * cos(57.6deg)) calc(50% + 2px * sin(57.6deg)), calc(50% + 2px * cos(64.8deg)) calc(50% + 2px * sin(64.8deg)), calc(50% + 2px * cos(72deg)) calc(50% + 2px * sin(72deg)), calc(50% + 2px * cos(79.2deg)) calc(50% + 2px * sin(79.2deg)), calc(50% + 2px * cos(86.4deg)) calc(50% + 2px * sin(86.4deg)), calc(50% + 2px * cos(93.6deg)) calc(50% + 2px * sin(93.6deg)), calc(50% + 2px * cos(100.8deg)) calc(50% + 2px * sin(100.8deg)), calc(50% + 2px * cos(108deg)) calc(50% + 2px * sin(108deg)), calc(50% + 2px * cos(115.2deg)) calc(50% + 2px * sin(115.2deg)), calc(50% + 2px * cos(122.4deg)) calc(50% + 2px * sin(122.4deg)), calc(50% + 2px * cos(129.6deg)) calc(50% + 2px * sin(129.6deg)), calc(50% + 2px * cos(136.8deg)) calc(50% + 2px * sin(136.8deg)), calc(50% + 2px * cos(144deg)) calc(50% + 2px * sin(144deg)), calc(50% + 2px * cos(151.2deg)) calc(50% + 2px * sin(151.2deg)), calc(50% + 2px * cos(158.4deg)) calc(50% + 2px * sin(158.4deg)), calc(50% + 2px * cos(165.6deg)) calc(50% + 2px * sin(165.6deg)), calc(50% + 2px * cos(172.8deg)) calc(50% + 2px * sin(172.8deg)), calc(50% + 2px * cos(180deg)) calc(50% + 2px * sin(180deg)), calc(50% + 2px * cos(187.2deg)) calc(50% + 2px * sin(187.2deg)), calc(50% + 2px * cos(194.4deg)) calc(50% + 2px * sin(194.4deg)), calc(50% + 2px * cos(201.6deg)) calc(50% + 2px * sin(201.6deg)), calc(50% + 2px * cos(208.8deg)) calc(50% + 2px * sin(208.8deg)), calc(50% + 2px * cos(216deg)) calc(50% + 2px * sin(216deg)), calc(50% + 2px * cos(223.2deg)) calc(50% + 2px * sin(223.2deg)), calc(50% + 2px * cos(230.4deg)) calc(50% + 2px * sin(230.4deg)), calc(50% + 2px * cos(237.6deg)) calc(50% + 2px * sin(237.6deg)), calc(50% + 2px * cos(244.8deg)) calc(50% + 2px * sin(244.8deg)), calc(50% + 2px * cos(252deg)) calc(50% + 2px * sin(252deg)), calc(50% + 2px * cos(259.2deg)) calc(50% + 2px * sin(259.2deg)), calc(50% + 2px * cos(266.4deg)) calc(50% + 2px * sin(266.4deg)), calc(50% + 2px * cos(273.6deg)) calc(50% + 2px * sin(273.6deg)), calc(50% + 2px * cos(280.8deg)) calc(50% + 2px * sin(280.8deg)), calc(50% + 2px * cos(288deg)) calc(50% + 2px * sin(288deg)), calc(50% + 2px * cos(295.2deg)) calc(50% + 2px * sin(295.2deg)), calc(50% + 2px * cos(302.4deg)) calc(50% + 2px * sin(302.4deg)), calc(50% + 2px * cos(309.6deg)) calc(50% + 2px * sin(309.6deg)), calc(50% + 2px * cos(316.8deg)) calc(50% + 2px * sin(316.8deg)), calc(50% + 2px * cos(324deg)) calc(50% + 2px * sin(324deg)), calc(50% + 2px * cos(331.2deg)) calc(50% + 2px * sin(331.2deg)), calc(50% + 2px * cos(338.4deg)) calc(50% + 2px * sin(338.4deg)), calc(50% + 2px * cos(345.6deg)) calc(50% + 2px * sin(345.6deg)), calc(50% + 2px * cos(352.8deg)) calc(50% + 2px * sin(352.8deg)), calc(50% + 2px * cos(360deg)) calc(50% + 2px * sin(360deg))); }
+
+rzslider span.rz-pointer:hover:after {
+  background-color: #ffffff; }
+
+rzslider span.rz-pointer.rz-active:after {
+  background-color: #451aff; }
+
+rzslider span.rz-bubble {
+  top: -16px;
+  padding: 1px 3px;
+  color: #000;
+  cursor: default; }
+
+rzslider span.rz-bubble.rz-selection {
+  top: 16px; }
+
+rzslider span.rz-bubble.rz-limit {
+  color: #ccc; }
+
 .thumbnailImg {
   border: 5px solid black;
   width: 100%; }

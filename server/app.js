@@ -11,7 +11,7 @@ var logger = require("morgan");
 
 var app = express();
 
-app.use(logger("dev"));
+// app.use(logger("dev"));
 
 // app.use(express.cookieParser());
 app.use(session({
