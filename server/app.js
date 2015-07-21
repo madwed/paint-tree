@@ -1,4 +1,3 @@
-
 "use strict";
 
 var express = require("express");
@@ -8,8 +7,11 @@ var bodyParser = require("body-parser");
 var router = require(path.join(__dirname, "./routes"));
 var sass = require("node-sass-middleware");
 var fs = require("fs");
+var logger = require("morgan");
 
 var app = express();
+
+app.use(logger("dev"));
 
 // app.use(express.cookieParser());
 app.use(session({

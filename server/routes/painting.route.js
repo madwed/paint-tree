@@ -1,5 +1,3 @@
-
-
 var router = require("express").Router();
 var AWS = require("aws-sdk");
 var s3 = new AWS.S3();
@@ -14,7 +12,6 @@ var Drawing = require("../models/drawing.model.js");
 router.get("/", function (req, res) {
 	//Route that serves up a number of root images from the database
 	//For viewing
-	console.log("index", req.session.userId);
 	Drawing.loadImages(10).then(function (images) {
 		res.json(images);
 	}).then(null, function (err) {
