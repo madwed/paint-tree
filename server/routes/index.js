@@ -3,6 +3,7 @@ var path = require("path");
 
 //Route that serves up the main page
 router.get("/", function (req, res) {
+	console.log("home", req.session.userId);
 	res.sendFile(path.join(__dirname, "../layout.html"));
 });
 

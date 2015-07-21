@@ -1,4 +1,4 @@
-app.directive("thumbNail", function () {
+app.directive("thumbnail", function () {
 	return {
 		restrict: "E",
 		scope: {
@@ -6,5 +6,5 @@ app.directive("thumbNail", function () {
 		},
 		controller: "ThumbnailCtrl",
 		templateUrl: "/directives/thumbnail/thumbnail.html"
-	}
+	};
 });

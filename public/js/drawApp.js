@@ -1,4 +1,4 @@
-var app = angular.module("DrawApp", ["ui.router"]);
+var app = angular.module("DrawApp", ["ui.router", "rzModule"]);
 
 app.config(function ($stateProvider) {
 	$stateProvider.state("home", {

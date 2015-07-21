@@ -11,11 +11,13 @@ var fs = require("fs");
 
 var app = express();
 
+// app.use(express.cookieParser());
 app.use(session({
-  secret: fs.readFileSync(path.join(__dirname, "./sessionKey.txt")),
+  secret: fs.readFileSync(path.join(__dirname, "./sessionKey.txt"), "utf8"),
   resave: false,
   saveUninitialize: false,
   cookie: {
+    httpOnly: false,
     secure: true
   }
 }));
