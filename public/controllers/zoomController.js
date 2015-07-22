@@ -1,0 +1,15 @@
+app.controller("ZoomCtrl", function ($scope, $rootScope, $state, ImageFactory) {
+	var unbind = $rootScope.$on("imageChange", function (event, image) {
+		console.log(event, image);
+		$scope.theImage = image;
+	});
+
+	$scope.theImage = ImageFactory.images.currentImg;
+
+	$scope.editImg = function () {
+		ImageFactory.images.loadImg = true;
+		$state.go("draw");
+	};
+
+	$scope.$on("$destroy", unbind);
+});
