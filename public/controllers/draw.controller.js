@@ -1,5 +1,4 @@
 app.controller("DrawCtrl", function ($scope) {
-
 	$scope.colorSlides = {
 		max: 255,
 		min: 0
@@ -14,4 +13,5 @@ app.controller("DrawCtrl", function ($scope) {
 	$scope.alphaSlide = 1;
 
 
+	
 });

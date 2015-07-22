@@ -15,6 +15,7 @@ app.controller("CanvasCtrl", function ($scope, $http, ImageFactory) {
 				console.log(error);
 			});
 	});
+
 	if(ImageFactory.images.loadImg) {
 		ImageFactory.getCurrentImage().then(function (theImage) {
 			var theImgObj = new Image();
