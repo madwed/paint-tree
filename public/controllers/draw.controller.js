@@ -8,9 +8,9 @@ app.controller("DrawCtrl", function ($scope) {
 		max: 1,
 		min: 0
 	};
-	$scope.redSlide = 150;
-	$scope.greenSlide = 100;
-	$scope.blueSlide = 20;
+	$scope.redSlide = 10;
+	$scope.greenSlide = 22;
+	$scope.blueSlide = 91;
 	$scope.alphaSlide = 1;
 
 

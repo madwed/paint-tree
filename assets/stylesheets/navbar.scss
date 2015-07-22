@@ -5,8 +5,10 @@ $nav-color: #000;
 	top: 0px;
 	width: 100vw;
 	height: 5vh;
+	padding: 0vh 2vw;
 	background-color: $nav-color;
 	color: invert($nav-color);
+	z-index: 100;
 }
 
 .container.nav-item{

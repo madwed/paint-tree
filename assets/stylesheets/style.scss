@@ -6,6 +6,7 @@
 @import "rzslider";
 @import "thumbnail";
 @import "signup";
+@import "zoom";
 
 html, body{
 	margin: 0px;
@@ -14,12 +15,12 @@ html, body{
 }
 
 .row{
-	padding: 0vh 2vw;
 	margin: 0px;
 }
 .content{
 	position: relative;
 	top: 7vh;
+	padding: 0vh 2vw;
 }
 .container{
 	margin: 0px;
@@ -47,11 +48,7 @@ html, body{
 	// background-color: blue;
 }
 
-.zoom{
-	border: 5px solid black;
-	width:100px;
-	height: 100px;
-}
+
 
 
 

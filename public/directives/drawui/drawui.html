@@ -1,32 +1,45 @@
-<div class="colorSliders">
-	<rzslider
-	class="red"
-    rz-slider-ceil="colorSlides.max"
-    rz-slider-floor="colorSlides.min"
-    rz-slider-model="redSlide"></rzslider>
-	<rzslider
-	class="green"
-	rz-slider-ceil="colorSlides.max"
-    rz-slider-floor="colorSlides.min"
-    rz-slider-model="greenSlide"></rzslider>
-	<rzslider
-	class="blue"
-	rz-slider-ceil="colorSlides.max"
-    rz-slider-floor="colorSlides.min"
-    rz-slider-model="blueSlide"></rzslider>
-	<rzslider
-	class="alpha"
-	rz-slider-step="0.01"
-	rz-slider-precision="2"
-	rz-slider-ceil="opacitySlides.max"
-    rz-slider-floor="opacitySlides.min"
-    rz-slider-model="alphaSlide"></rzslider>
-</div><!-- 
- --><div class="color swatch" style="background-color:rgba({{redSlide}},{{greenSlide}},{{blueSlide}},{{alphaSlide}});"></div>
-<div id="rand">
-	<p> randomize under color values <input name="random" value="down" type="radio"> </p>
-	<p> randomize over color values <input name="random" value="up" type="radio"> </p>
-	<p> don't randomize <input name="random" value="no" type="radio" checked="checked"> </p>
+<div class="row">
+	<div class="colorSliders">
+		<rzslider
+		class="red"
+	    rz-slider-ceil="colorSlides.max"
+	    rz-slider-floor="colorSlides.min"
+	    rz-slider-model="redSlide"></rzslider>
+		<rzslider
+		class="green"
+		rz-slider-ceil="colorSlides.max"
+	    rz-slider-floor="colorSlides.min"
+	    rz-slider-model="greenSlide"></rzslider>
+		<rzslider
+		class="blue"
+		rz-slider-ceil="colorSlides.max"
+	    rz-slider-floor="colorSlides.min"
+	    rz-slider-model="blueSlide"></rzslider>
+		<rzslider
+		class="alpha"
+		rz-slider-step="0.01"
+		rz-slider-precision="2"
+		rz-slider-ceil="opacitySlides.max"
+	    rz-slider-floor="opacitySlides.min"
+	    rz-slider-model="alphaSlide"></rzslider>
+	</div><!-- 
+	 --><div class="color swatch" style="background-color:rgba({{redSlide}},{{greenSlide}},{{blueSlide}},{{alphaSlide}});"></div>
+</div>
+<div class="row">
+<table>
+	<tr>
+		<td class="uiTable random"> randomize under color values </td>
+		<td class="uiTable random"> randomize over color values </td>
+		<td class="uiTable random"> don't randomize </td>
+	</tr>
+	<tr>
+		<td class="uiTable random"><input name="random" value="down" type="radio"></td>
+		<td class="uiTable random"><input name="random" value="up" type="radio"></td>
+		<td class="uiTable random"><input name="random" value="no" type="radio" checked="checked"></td>
+	</tr>
+</table>
+	
+	
 </div>
 <div id="brush">
 	<div id="brushProperties">
