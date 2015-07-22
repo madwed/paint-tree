@@ -1,0 +1,82 @@
+.colorSliders{
+	width: 89%;
+	height: 100px;
+	display: inline-block;
+}
+
+$swatch-border: 1px;
+.swatch{
+	width: calc(10% - #{$swatch-border} * 2);
+	margin: 0% 0% 0% 1%;
+	height: 100px;
+	display: inline-block;
+	border-radius: 5px;
+	border: $swatch-border solid lightgray;
+}
+
+#managers-wrapper{
+	margin: .42em 1.24em;
+	width: 100%;
+}
+
+#managers h3{
+	text-align: left;
+}
+
+#managers div p{
+	margin: 0em;
+	text-align: left;
+	font-size: 75%;
+}
+#managers div p input{
+	position: absolute;
+	right: 17em;
+}
+
+#colors{
+	width:99.5%;
+	margin: .42em 1.24em;
+}
+#brush{
+	width:100%;
+	position: relative;
+	left: 1.2em;
+}
+#brushProperties{
+	width:100%;
+	height:8em;
+	margin: .5em .2em;
+}
+#brushProps{
+	display: inline-block;
+	position: absolute;
+	left: 0em;
+	width:70%;
+	height:8em;
+	margin:0em;
+}
+#brushSpins{
+	display: inline-block;
+	position: absolute;
+	right:0em;
+	width:20%;
+	height:8em;
+	margin:0em;
+}
+#brushSpins input{
+	width:100%;
+	height:1em;
+}
+
+/*
+implement black and white background behind slider
+#red, #green, #blue, #alpha {
+	background: black;
+}*/
+#swatch {
+	width: 100%;
+	height: 3em;
+	margin: .42em 1.34em;
+	border: .1em solid lightgray;
+	background-image: none;
+}

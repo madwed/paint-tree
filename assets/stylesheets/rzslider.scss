@@ -1,0 +1,144 @@
+/**
+ * Angular JS slider directive
+ *
+ * (c) Rafal Zajac <rzajac@gmail.com>
+ * http://github.com/rzajac/angularjs-slider
+ *
+ * Licensed under the MIT license
+ */
+
+/* Slider colors */
+
+/* Slider size parameters */
+
+$light-gray: #ccc;
+$black: rgba(0,0,0,1);
+$red: rgba(255,0,0,1);
+$green: rgba(24,181,0,1);
+$blue: rgba(0,110,255,1);
+$alpha: rgba(220,220,220,1);
+
+rzslider {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  margin: 5px 0 15px 0;
+  vertical-align: middle;
+}
+
+rzslider span {
+  position: absolute;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+rzslider span.rz-base {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+rzslider span.rz-bar {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: $light-gray;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+}
+rzslider.red span.rz-bar{
+  background: rgb(0,0,0); /* Old browsers */
+  background: -moz-linear-gradient(left, $black 0%, $red 75%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$black), color-stop(75%,$red)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, $black 0%,$red 75%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, $black 0%, $red 75%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, $black 0%,$red 75%); /* IE10+ */
+  background: linear-gradient(to right, $black 0%,$red 75%); /* W3C */  
+}
+rzslider.green span.rz-bar{
+  background: rgb(0,0,0); /* Old browsers */
+  background: -moz-linear-gradient(left, $black 0%, $green 75%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$black), color-stop(75%,$green)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, $black 0%,$green 75%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, $black 0%, $green 75%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, $black 0%, $green 75%); /* IE10+ */
+  background: linear-gradient(to right, $black 0%, $green 75%); /* W3C */
+}
+rzslider.blue span.rz-bar{
+  background: rgb(0,0,0); /* Old browsers */
+  background: -moz-linear-gradient(left, $black 0%, $blue 75%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$black), color-stop(75%,$blue)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, $black 0%,$blue 75%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, $black 0%,$blue 75%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, $black 0%,$blue 75%); /* IE10+ */
+  background: linear-gradient(to right, $black 0%,$blue 75%); /* W3C */
+}
+rzslider.alpha span.rz-bar{
+  background: rgb(0,0,0); /* Old browsers */
+  background: -moz-linear-gradient(left, $alpha 0%, $black 75%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$alpha), color-stop(75%,$black)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, $alpha 0%,$black 75%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, $alpha 0%,$black 75%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, $alpha 0%,$black 75%); /* IE10+ */
+  background: linear-gradient(to right, $alpha 0%,$black 75%); /* W3C */
+}
+
+
+
+rzslider span.rz-pointer {
+  z-index: 2;
+  width: 8px;
+  height: 8px;
+  top: -2px;
+  cursor: pointer;
+  background-color: #000;
+  -webkit-border-radius: 16px;
+     -moz-border-radius: 16px;
+          border-radius: 16px;
+}
+
+rzslider span.rz-pointer:after {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 2px;
+  background: #ffffff;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  content: '';
+}
+
+rzslider span.rz-pointer:hover:after {
+  background-color: #ffffff;
+}
+
+rzslider.red span.rz-pointer.rz-active:after {
+  background-color: $red;
+}
+rzslider.green span.rz-pointer.rz-active:after {
+  background-color: $green;
+}
+rzslider.blue span.rz-pointer.rz-active:after {
+  background-color: $blue;
+}
+rzslider.alpha span.rz-pointer.rz-active:after {
+  background-color: $alpha;
+}
+
+rzslider span.rz-bubble {
+  top: -16px;
+  padding: 1px 3px;
+  color: #000;
+  cursor: default;
+}
+
+rzslider span.rz-bubble.rz-selection {
+  top: 16px;
+}
+
+rzslider span.rz-bubble.rz-limit {
+  color: $light-gray;
+}

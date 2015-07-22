@@ -46,6 +46,19 @@
   width: 48vw;
   height: 32vw; }
 
+.colorSliders {
+  width: 89%;
+  height: 100px;
+  display: inline-block; }
+
+.swatch {
+  width: calc(10% - 1px * 2);
+  margin: 0% 0% 0% 1%;
+  height: 100px;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid lightgray; }
+
 #managers-wrapper {
   margin: 0.42em 1.24em;
   width: 100%; }
@@ -108,42 +121,6 @@ implement black and white background behind slider
   border: .1em solid lightgray;
   background-image: none; }
 
-#red .ui-slider-range {
-  background: #ef2929; }
-
-#red .ui-slider-handle {
-  border-color: #ef2929; }
-
-#green .ui-slider-range {
-  background: #8ae234; }
-
-#green .ui-slider-handle {
-  border-color: #8ae234; }
-
-#blue .ui-slider-range {
-  background: #729fcf; }
-
-#blue .ui-slider-handle {
-  border-color: #729fcf; }
-
-#size .ui-slider-range {
-  background: #aaaaaa; }
-
-#size .ui-slider-handle {
-  background: #aaaaaa; }
-
-#smear .ui-slider-range {
-  background: #aaaaaa; }
-
-#smear .ui-slider-handle {
-  background: #aaaaaa; }
-
-#life .ui-slider-range {
-  background: #aaaaaa; }
-
-#life .ui-slider-handle {
-  background: #aaaaaa; }
-
 /**
  * Angular JS slider directive
  *
@@ -188,7 +165,7 @@ rzslider.red span.rz-bar {
   /* FF3.6+ */
   background: -webkit-gradient(linear, left top, right top, color-stop(0%, black), color-stop(75%, red));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left, black 0%, #d30000 50%, red 75%);
+  background: -webkit-linear-gradient(left, black 0%, red 75%);
   /* Chrome10+,Safari5.1+ */
   background: -o-linear-gradient(left, black 0%, red 75%);
   /* Opera 11.10+ */
@@ -270,8 +247,17 @@ rzslider span.rz-pointer:after {
 rzslider span.rz-pointer:hover:after {
   background-color: #ffffff; }
 
-rzslider span.rz-pointer.rz-active:after {
-  background-color: #451aff; }
+rzslider.red span.rz-pointer.rz-active:after {
+  background-color: red; }
+
+rzslider.green span.rz-pointer.rz-active:after {
+  background-color: #18b500; }
+
+rzslider.blue span.rz-pointer.rz-active:after {
+  background-color: #006eff; }
+
+rzslider.alpha span.rz-pointer.rz-active:after {
+  background-color: gainsboro; }
 
 rzslider span.rz-bubble {
   top: -16px;
@@ -296,7 +282,8 @@ rzslider span.rz-bubble.rz-limit {
 
 .map {
   border: 5px solid darkgrey;
-  width: 100%; }
+  width: calc(100% - 10px);
+  margin: 0vh 0vw 1vh 0vh; }
 
 .signup {
   text-align: center;
@@ -371,3 +358,8 @@ html, body {
 .col-lg-12 {
   width: 95vw;
   position: relative; }
+
+.zoom {
+  border: 5px solid black;
+  width: 100px;
+  height: 100px; }

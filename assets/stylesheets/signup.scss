@@ -1,6 +1,7 @@
 .map{
 	border: 5px solid darkgrey;
-	width: 100%;
+	width: calc(100% - 10px);
+	margin: 0vh 0vw 1vh 0vh;
 }
 
 .signup{

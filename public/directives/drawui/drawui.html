@@ -1,26 +1,28 @@
-<div class="color"></div>
-<div id="colorSliders">
+<div class="colorSliders">
 	<rzslider
 	class="red"
-    rz-slider-ceil="colorSlide.max"
-    rz-slider-floor="colorSlide.min"
+    rz-slider-ceil="colorSlides.max"
+    rz-slider-floor="colorSlides.min"
     rz-slider-model="redSlide"></rzslider>
 	<rzslider
 	class="green"
-	rz-slider-ceil="colorSlide.max"
-    rz-slider-floor="colorSlide.min"
+	rz-slider-ceil="colorSlides.max"
+    rz-slider-floor="colorSlides.min"
     rz-slider-model="greenSlide"></rzslider>
 	<rzslider
 	class="blue"
-	rz-slider-ceil="colorSlide.max"
-    rz-slider-floor="colorSlide.min"
+	rz-slider-ceil="colorSlides.max"
+    rz-slider-floor="colorSlides.min"
     rz-slider-model="blueSlide"></rzslider>
 	<rzslider
 	class="alpha"
-	rz-slider-ceil="colorSlide.max"
-    rz-slider-floor="colorSlide.min"
+	rz-slider-step="0.01"
+	rz-slider-precision="2"
+	rz-slider-ceil="opacitySlides.max"
+    rz-slider-floor="opacitySlides.min"
     rz-slider-model="alphaSlide"></rzslider>
-</div>
+</div><!-- 
+ --><div class="color swatch" style="background-color:rgba({{redSlide}},{{greenSlide}},{{blueSlide}},{{alphaSlide}});"></div>
 <div id="rand">
 	<p> randomize under color values <input name="random" value="down" type="radio"> </p>
 	<p> randomize over color values <input name="random" value="up" type="radio"> </p>

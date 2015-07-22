@@ -1,3 +1,4 @@
+
 var app = angular.module("DrawApp", ["ui.router", "rzModule"]);
 
 app.config(function ($stateProvider) {
@@ -6,11 +7,10 @@ app.config(function ($stateProvider) {
 		views: {
 			"body": {
 				controller: "HomeCtrl",
-				templateUrl: "/templates/index.html"
+				templateUrl: "/templates/home.html"
 			},
 			"map": {
-				controller: "SignupCtrl",
-				templateUrl: "/templates/signup.html"
+				templateUrl: "/templates/focus.html"
 			}
 		}
 	//Can this .state somehow be called later... or the CanvasCtrl not be loaded until drawingBoard is loaded?
@@ -22,8 +22,7 @@ app.config(function ($stateProvider) {
 				templateUrl: "/templates/drawingBoard.html"
 			},
 			"map": {
-				controller: "SignupCtrl",
-				templateUrl: "/templates/signup.html"
+				templateUrl: "/templates/ui.html"
 			}
 		}
 	});

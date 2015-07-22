@@ -1,4 +1,4 @@
-<figure class="container" ngCloak>
-	<img class="thumbnailImg" ng-src="{{thePainting.thumbnail}}" ng-click="editImg()" ng-show="loaded" data-id="{{thePainting.data._id}}"/>
+<figure class="container" ng-cloak>
+	<img class="thumbnailImg" ng-src="{{thePainting.image}}" ng-click="editImg()" ng-show="loaded" data-id="{{thePainting.data._id}}"/>
 	<figcaption class="caption" ng-show="loaded">By {{thePainting.data.mainAuthor}}</figcaption>
 </figure>
