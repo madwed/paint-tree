@@ -23,7 +23,6 @@ router.get("/", function (req, res) {
 router.get("/:paintingId", function (req, res) {
 	//Route that serves a painting to the canvas
 	Drawing.loadImageForDrawing(req.params.paintingId).then(function (image) {
-		console.log("image in route", image.data);
 		res.json(image);
 	}).then(null, function (err) {
 		console.log("Error loading image from db for edit", err);

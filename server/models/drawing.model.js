@@ -36,7 +36,6 @@ var s3FindImage = function (imgData) {
 			Bucket: "/madpainter/drawings",
 			Key: imgData._id + ""
 		}, function (err, image) {
-			console.log("imgFromS3", image);
 			if(err) { reject(err); }
 			else {
 				var imgString = "data:image/png;base64," + image.Body.toString("base64");

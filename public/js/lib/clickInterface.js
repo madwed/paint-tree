@@ -1,6 +1,7 @@
 define([], function () {
+  "use strict";
 
-  var ClickInterface = function (canvas) {
+  var clickInterface = function (canvas) {
     var rect = canvas.getBoundingClientRect();
     var ctx = canvas.getContext("2d");
     var width = canvas.width, height = canvas.height;
@@ -30,7 +31,7 @@ define([], function () {
       var y = Math.round((event.pageY - rect.top) / (rect.bottom - rect.top) * height);
 
       return {x: x, y: y};
-    }
+    };
 
     var drawLine = function (event) {
       movePoint = eventXY(event);
@@ -46,24 +47,24 @@ define([], function () {
 
     var startClick = function (event) {
       startPoint = eventXY(event);
-      canvas.addEventListener("mousemove", drawLine);
+      document.addEventListener("mousemove", drawLine);
     };
-
 
     var endClick = function (event) {
       endPoint = eventXY(event);
-      canvas.removeEventListener("mousemove", drawLine);
       ctx.clearRect(0, 0, width, height);
+      document.removeEventListener("mousemove", drawLine);
       ///Emit
-      return {start: startPoint, end: endPoint};
-    }
+      var lineEvent = new CustomEvent("lineEvent", {"detail": {start: startPoint, end: endPoint}});
+      document.dispatchEvent(lineEvent);
+    };
 
 
     canvas.addEventListener("mousedown", startClick);
     canvas.addEventListener("mouseup", endClick);
-    
-  }
+
+  };
 
 
-  return ClickInterface;
+  return clickInterface;
 });

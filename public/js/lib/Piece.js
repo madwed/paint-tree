@@ -17,13 +17,13 @@ define(["js/lib/Brush",
   "js/lib/BrushManager",
   "js/lib/DryBrush",
   "js/lib/Vector"],
-  function (Brush, BrushManager, DryBrush, Vector) {
+  function (Brush, BrushManager) {
     function Piece () {
       this.width = 150;
       this.height = 100;
     }
 
-    Piece.prototype.init = function(canvas_){
+    Piece.prototype.init = function (canvas_) {
       this.canvas = canvas_;
       var canvasStyle = window.getComputedStyle(canvas_);
       this.width = width = parseInt(canvasStyle.getPropertyValue("width"), 10);

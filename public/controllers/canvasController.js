@@ -1,13 +1,14 @@
-// define(["js/lib/Vector", "js/lib/Brush", "js/lib/DryBrush", "js/lib/BrushManager", "js/lib/Piece", "js/lib/clickInterface"], function (Vector, Brush, DryBrush, BrushManager, Piece) { 
-define([], function () {
+// define(["js/lib/Vector", "js/lib/Brush", "js/lib/DryBrush", "js/lib/BrushManager", "js/lib/Piece"], function (Vector, Brush, DryBrush, BrushManager, Piece) { 
+define(["js/lib/clickInterface", "js/lib/Piece"], function (clickInterface, Piece) {
+	"use strict";
 
-	var CanvasController = function ($scope, $http, ImageFactory) {
-		var canvas = document.getElementById("drawCanvas");
-		var ctx = canvas.getContext("2d");
+	var CanvasController = function ($scope, $rootScope, $http, ImageFactory) {
+		var drawCanvas = document.getElementById("drawCanvas");
+		var drawCtx = drawCanvas.getContext("2d");
 
 		var saveButton = document.getElementById("save");
 		saveButton.addEventListener("click", function () {
-			var canvasData = canvas.toDataURL();
+			var canvasData = drawCanvas.toDataURL();
 			var url = "/paintings/new/";
 			url += $scope.theImage ? $scope.theImage.data._id.toString() : "new";
 			$http.post("https://ec2-52-3-59-46.compute-1.amazonaws.com:8080" + url, {img: canvasData, author: "Isaac Madwed"}).
@@ -23,7 +24,7 @@ define([], function () {
 			ImageFactory.getCurrentImage().then(function (theImage) {
 				var theImgObj = new Image();
 				theImgObj.onload = function () {
-					ctx.drawImage(theImgObj, 0, 0, canvas.width, canvas.height);
+					drawCtx.drawImage(theImgObj, 0, 0, drawCanvas.width, drawCanvas.height);
 					$scope.loaded = true;
 				};
 				theImgObj.src = theImage.image;
@@ -31,9 +32,16 @@ define([], function () {
 			});
 		}
 
-		// var clickCanvas = document.getElementById("clickCanvas");
-		// clickInterface(clickCanvas);
+		var clickCanvas = document.getElementById("clickCanvas");
+		clickInterface(clickCanvas, $scope);
 
+		var thePiece = new Piece(drawCanvas);
+
+		var unbind = $rootScope.$on("markEvent", function () {
+			thePiece.draw();
+		});
+
+		$scope.$on("$destroy", unbind);
 
 		// window.onload = function() {
 		//   var canvas1 = document.getElementById("canvas1");
@@ -81,7 +89,7 @@ define([], function () {
 
 	};
 
-	CanvasController.$inject = ["$scope", "$http", "ImageFactory"];
+	CanvasController.$inject = ["$scope", "$rootScope", "$http", "ImageFactory"];
 
 	return CanvasController;
 });
