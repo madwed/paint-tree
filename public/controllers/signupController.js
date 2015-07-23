@@ -4,8 +4,8 @@ define([], function () {
 			if (signin) {
 				$scope.credentials.login = true;
 			}
-	        Auth.signin($scope.credentials);
-	    };
+			Auth.signin($scope.credentials);
+		};
 	};
 
 	SignupController.$inject = ["$scope", "Auth"];

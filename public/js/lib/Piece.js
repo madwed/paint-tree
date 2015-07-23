@@ -18,7 +18,7 @@ define(["js/lib/Brush",
   "js/lib/DryBrush",
   "js/lib/Vector"],
   function (Brush, BrushManager, DryBrush, Vector) {
-    function Piece(){
+    function Piece () {
       this.width = 150;
       this.height = 100;
     }

@@ -75,7 +75,6 @@ define([], function () {
 		//     animloop_id = requestAnimationFrame(animloop);
 		//     bigMan.run();
 		//     bigMan.clickInterface();
-		    
 
 		//   })();
 		// };

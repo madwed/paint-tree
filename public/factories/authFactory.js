@@ -1,5 +1,5 @@
 define([], function () {
-	var AuthFactory = function($http) {
+	var AuthFactory = function ($http) {
 		return {
 			signin: function (credentials) {
 				var method = "POST";
