@@ -17,9 +17,7 @@ define(["controllers/mainController",
 	"bower_components/angular-ui-router/release/angular-ui-router.min",
 	"js/rzslider.min"],
 function (mainController, canvasController, zoomController, homeController, thumbnailController, signupController, drawController, thumbnailDirective, drawuiDirective, signupDirective, zoomDirective, imageFactory, authFactory) {
-
 	var app = angular.module("DrawApp", ["ui.router", "rzModule"]);
-
 	app.config(function ($stateProvider) {
 		$stateProvider.state("home", {
 			url: "/paintings",
