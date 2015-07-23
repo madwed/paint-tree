@@ -1,15 +1,21 @@
-app.controller("ZoomCtrl", function ($scope, $rootScope, $state, ImageFactory) {
-	var unbind = $rootScope.$on("imageChange", function (event, image) {
-		console.log(event, image);
-		$scope.theImage = image;
-	});
+define([], function () {
+	var ZoomController = function ($scope, $rootScope, $state, ImageFactory) {
+		var unbind = $rootScope.$on("imageChange", function (event, image) {
+			console.log(event, image);
+			$scope.theImage = image;
+		});
 
-	$scope.theImage = ImageFactory.images.currentImg;
+		$scope.theImage = ImageFactory.images.currentImg;
 
-	$scope.editImg = function () {
-		ImageFactory.images.loadImg = true;
-		$state.go("draw");
+		$scope.editImg = function () {
+			ImageFactory.images.loadImg = true;
+			$state.go("draw");
+		};
+
+		$scope.$on("$destroy", unbind);
 	};
 
-	$scope.$on("$destroy", unbind);
+	ZoomController.$inject = ["$scope", "$rootScope", "$state", "ImageFactory"];
+
+	return ZoomController;
 });

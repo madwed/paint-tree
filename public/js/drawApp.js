@@ -55,13 +55,13 @@ function (mainController, canvasController, zoomController, homeController, thum
 	app.controller("SignupCtrl", signupController);
 	app.controller("DrawCtrl", drawController);
 
-	app.directive("thumbnail", thumbnailDirective);
+	app.directive("thumbnail", thumbnailDirective); // Can directives be combined with their controller files?
 	app.directive("drawui", drawuiDirective);
 	app.directive("zoom", zoomDirective);
 	app.directive("signup", signupDirective);
 
 	app.factory("ImageFactory", imageFactory);
-	app.factory("AuthFactory", authFactory);
+	app.factory("Auth", authFactory);
 });
 
 
