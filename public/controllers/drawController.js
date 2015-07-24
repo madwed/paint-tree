@@ -17,7 +17,8 @@ define([], function () {
 			r: $scope.redSlide,
 			g: $scope.greenSlide,
 			b: $scope.blueSlide,
-			a: $scope.alphaSlide
+			a: $scope.alphaSlide,
+			size: 5
 		};
 
 		var emitMark = function (event) {

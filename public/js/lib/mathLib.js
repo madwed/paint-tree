@@ -1,22 +1,33 @@
 /**
- * @Math
- */
+* @Math
+*/
 
 //Constants
 
-exports.MAXFLOAT = 1E+37;
-exports.EPSILON = 1E-5;
-exports.sign= function(x) {
-    return typeof x === 'number' ? x ? x < 0 ? -1 : 1 : x === x ? 0 : NaN : NaN;
-},
+define([], function () {
+	return {
+		MAXFLOAT: 1E+37,
+		EPSILON: 1E-5,
+		sign: function (x) {
+			return typeof x === "number" ? x ? x < 0 ? -1 : 1 : x === x ? 0 : NaN : NaN;
+		},
 
-exports.getPixel= function(x_,y_,width,height){
-    if (x_ < 0 || y_ < 0 || x_ > width || y_ > height){
-      return undefined;
-    }else{
-      return (Math.floor(x_) * 4 + width * Math.floor(y_)*4);
-    }
-}
+		getPixel: function (pos, dimensions) {
+			var x = pos[0],
+				y = pos[1],
+				width = dimensions.width,
+				height = dimensions.height;
+			if (x < 0 || y < 0 || x > width || y > height) {
+				return undefined;
+			}else {
+				return Math.floor(x) * 4 + width * Math.floor(y) * 4;
+			}
+		}
+	};
+
+});
+
+
 
 
 

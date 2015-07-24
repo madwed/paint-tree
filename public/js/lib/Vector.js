@@ -8,8 +8,6 @@ define(["js/lib/mathLib"],
       return this;
     }
 
-    module.exports = Vector;
-
     Vector.prototype.selfAdd = function (vec) {
       this.x += vec.x;
       this.y += vec.y;

@@ -19,7 +19,7 @@ define(["js/lib/Vector",
 
       this.width = size;
 
-      this.vel = new Vector(startX - endPoint.x, startY - endPoint.y);
+      this.vel = new Vector(endPoint.x - startX, endPoint.y - startY);
 
       var angle = Math.atan2(this.vel.y, this.vel.x) + Math.PI / 2;
       var x0 = Math.cos(angle) * size / 2;

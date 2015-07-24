@@ -37,8 +37,9 @@ define(["js/lib/clickInterface", "js/lib/Piece"], function (clickInterface, Piec
 
 		var thePiece = new Piece(drawCanvas);
 
-		var unbind = $rootScope.$on("markEvent", function () {
-			thePiece.draw();
+		var unbind = $rootScope.$on("markEvent", function (event, mark) {
+			console.log(mark);
+			thePiece.draw(mark);
 		});
 
 		$scope.$on("$destroy", unbind);
