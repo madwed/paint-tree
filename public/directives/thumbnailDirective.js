@@ -1,11 +1,11 @@
-define([], function () {
+define(["controllers/thumbnailController"], function (thumbnailController) {
 	var ThumbnailDirective = function () {
 		return {
 			restrict: "E",
 			scope: {
-				theImage: "=painter"
+				theImage: "=painting"
 			},
-			controller: "ThumbnailCtrl",
+			controller: thumbnailController,
 			templateUrl: "/directives/thumbnail.html"
 		};
 	};

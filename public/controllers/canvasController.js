@@ -19,26 +19,27 @@ define(["js/lib/clickInterface", "js/lib/Piece"], function (clickInterface, Piec
 					console.log(error);
 				});
 		});
-
+		var thePiece;
 		if(ImageFactory.images.loadImg) {
 			ImageFactory.getCurrentImage().then(function (theImage) {
 				var theImgObj = new Image();
 				theImgObj.onload = function () {
 					drawCtx.drawImage(theImgObj, 0, 0, drawCanvas.width, drawCanvas.height);
+					thePiece = new Piece(drawCanvas);
 					$scope.loaded = true;
 				};
 				theImgObj.src = theImage.image;
 				$scope.theImage = theImage;
 			});
+		}else {
+			thePiece = new Piece(drawCanvas);
+			$scope.loaded = true;
 		}
 
 		var clickCanvas = document.getElementById("clickCanvas");
 		clickInterface(clickCanvas, $scope);
 
-		var thePiece = new Piece(drawCanvas);
-
 		var unbind = $rootScope.$on("markEvent", function (event, mark) {
-			console.log(mark);
 			thePiece.draw(mark);
 		});
 

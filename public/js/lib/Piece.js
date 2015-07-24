@@ -24,15 +24,16 @@ define(["js/lib/Brush",
       this.ctx = canvas.getContext("2d");
       this.iData = this.ctx.getImageData(0, 0, canvas.width, canvas.height);
       this.strokes = [];
-      this.running = false;
+      var run = this.run.bind(this);
+      this.runBox = {running: false, run: run};
     }
 
     Piece.prototype.draw = function (mark) {
       var stroke = {brush: new Brush(mark.positions, mark.mark.size), paint: new Paint(mark.mark)};
       this.strokes.push(stroke);
-      if(!this.running) {
-        this.running = true;
-        this.run();
+      if(!this.runBox.running) {
+        this.runBox.running = true;
+        this.animate();
       }
     };
 
@@ -56,11 +57,10 @@ define(["js/lib/Brush",
         }
       }, this);
       if(this.strokes.length === 0) {
-        console.log("no");
-        this.running = false;
+        return false;
       }else {
         this.ctx.putImageData(this.iData, 0, 0);
-        this.run();
+        return true;
       }
     };
 
@@ -70,6 +70,23 @@ define(["js/lib/Brush",
       iData[pixel + 1] = colors.g;
       iData[pixel + 2] = colors.b;
       iData[pixel + 3] = colors.a;
+    };
+
+    Piece.prototype.animate = function () {
+      var again, cancel,
+        runBox = this.runBox,
+        anim = function () {
+          again = runBox.run();
+          if(again) {
+            console.log("again");
+            cancel = requestAnimationFrame(anim);
+          }else {
+            console.log("stop");
+            cancelAnimationFrame(cancel);
+            runBox.running = false;
+          }
+        };
+      cancel = requestAnimationFrame(anim);
     };
 
     return Piece;

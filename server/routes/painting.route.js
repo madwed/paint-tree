@@ -12,7 +12,7 @@ var Drawing = require("../models/drawing.model.js");
 router.get("/", function (req, res) {
 	//Route that serves up a number of root images from the database
 	//For viewing
-	Drawing.loadImages(10).then(function (images) {
+	Drawing.loadImages().then(function (images) {
 		res.json(images);
 	}).then(null, function (err) {
 		console.log("Error loading home page images", err);

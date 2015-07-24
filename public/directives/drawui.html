@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="colorSliders">
+	<div class="colorSliders" ng-hide="random">
 		<rzslider
 		class="red"
 	    rz-slider-ceil="colorSlides.max"
@@ -23,31 +23,50 @@
 	    rz-slider-floor="opacitySlides.min"
 	    rz-slider-model="alphaSlide"></rzslider>
 	</div><!-- 
-	 --><div class="color swatch" style="background-color:rgba({{redSlide}},{{greenSlide}},{{blueSlide}},{{alphaSlide}});"></div>
+ --><div class="colorSliders" ng-show="random">
+ 		<rzslider
+		class="red"
+	    rz-slider-ceil="colorSlides.max"
+	    rz-slider-floor="colorSlides.min"
+	    rz-slider-high="redRangeSlide.max"
+	    rz-slider-model="redRangeSlide.min"></rzslider>
+		<rzslider
+		class="green"
+		rz-slider-ceil="colorSlides.max"
+	    rz-slider-floor="colorSlides.min"
+	    rz-slider-high="greenRangeSlide.max"
+	    rz-slider-model="greenRangeSlide.min"></rzslider>
+		<rzslider
+		class="blue"
+		rz-slider-ceil="colorSlides.max"
+	    rz-slider-floor="colorSlides.min"
+	    rz-slider-high="blueRangeSlide.max"
+	    rz-slider-model="blueRangeSlide.min"></rzslider>
+		<rzslider
+		class="alpha"
+		rz-slider-step="0.01"
+		rz-slider-precision="2"
+		rz-slider-ceil="opacitySlides.max"
+	    rz-slider-floor="opacitySlides.min"
+	    rz-slider-high="alphaRangeSlide.max"
+	    rz-slider-model="alphaRangeSlide.min"></rzslider>
+	</div><!-- 
+ --><div class="color swatch" style="background-color:rgba({{redSlide}},{{greenSlide}},{{blueSlide}},{{alphaSlide}});"></div>
 </div>
-<div class="row">
-<table>
-	<tr>
-		<td class="uiTable random"> randomize under color values </td>
-		<td class="uiTable random"> randomize over color values </td>
-		<td class="uiTable random"> don't randomize </td>
-	</tr>
-	<tr>
-		<td class="uiTable random"><input name="random" value="down" type="radio"></td>
-		<td class="uiTable random"><input name="random" value="up" type="radio"></td>
-		<td class="uiTable random"><input name="random" value="no" type="radio" checked="checked"></td>
-	</tr>
-</table>
-	
-	
-</div>
+<div ng-click="switchSlides()">Random</div>
 <div id="brush">
 	<div id="brushProperties">
 		<div id="brushProps">
-			<p class="title">sample frequency</p>
-			<div id="smear"></div>
+			<p class="title">resample (x) times</p>
+			<rzslider
+			rz-slider-floor="1"
+			rz-slider-ceil="1000"
+			rz-slider-model="sampleSlide"></rzslider>
 			<p class="title">brush width</p>
-			<div id="size"></div>
+			<rzslider
+			rz-slider-floor="1"
+			rz-slider-ceil="1000"
+			rz-slider-model="widthSlide"></rzslider>
 		</div>
 		<div id="brushSpins">
 			<p></p>

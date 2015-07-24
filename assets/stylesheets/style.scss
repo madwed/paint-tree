@@ -29,8 +29,7 @@ html, body{
 }
 
 .home{
-	align-content: center;
-	text-align: center;
+	text-align: left;
 }
 
 @for $i from 1 through 12 {
@@ -45,7 +44,9 @@ html, body{
 	// background-color: red;
 }
 .mapBox{
-	// background-color: blue;
+	position: fixed;
+	right: 2vw;
+	top: 7vh;
 }
 
 

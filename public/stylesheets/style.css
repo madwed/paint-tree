@@ -227,6 +227,9 @@ rzslider.alpha span.rz-bar {
   background: linear-gradient(to right, gainsboro 0%, black 75%);
   /* W3C */ }
 
+rzslider span.rz-bar.rz-selection {
+  background: transparent; }
+
 rzslider span.rz-pointer {
   z-index: 2;
   width: 8px;
@@ -323,8 +326,7 @@ html, body {
   vertical-align: top; }
 
 .home {
-  align-content: center;
-  text-align: center; }
+  text-align: left; }
 
 .col-lg-1 {
   width: 7vw;
@@ -373,3 +375,8 @@ html, body {
 .col-lg-12 {
   width: 95vw;
   position: relative; }
+
+.mapBox {
+  position: fixed;
+  right: 2vw;
+  top: 7vh; }

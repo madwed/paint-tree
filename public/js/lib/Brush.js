@@ -107,6 +107,8 @@ define(["js/lib/Vector",
         if(this.pos.y > this.endPoint.y) {
           this.kill = true;
         }
+      }else {
+        this.kill = true;
       }
     };
 

@@ -85,7 +85,9 @@ rzslider.alpha span.rz-bar{
   background: linear-gradient(to right, $alpha 0%,$black 75%); /* W3C */
 }
 
-
+rzslider span.rz-bar.rz-selection{
+  background: transparent;
+}
 
 rzslider span.rz-pointer {
   z-index: 2;
