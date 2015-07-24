@@ -1,8 +1,8 @@
-define([], function () {
+define(["controllers/signupController"], function (signupController) {
 	var SignupDirective = function () {
 		return {
 			restrict: "E",
-			controller: "SignupCtrl",
+			controller: signupController,
 			templateUrl: "/directives/signup.html"
 		};
 	};

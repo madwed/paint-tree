@@ -1,8 +1,8 @@
-define([], function () {
+define(["controllers/zoomController"], function (zoomController) {
 	var ZoomDirective = function () {
 		return {
 			restrict: "E",
-			controller: "ZoomCtrl",
+			controller: zoomController,
 			templateUrl: "/directives/zoom.html"
 		};
 	};

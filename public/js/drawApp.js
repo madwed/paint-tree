@@ -1,9 +1,6 @@
 define(["controllers/mainController",
 	"controllers/canvasController",
-	"controllers/zoomController",
 	"controllers/homeController",
-	"controllers/signupController",
-	"controllers/drawController",
 	"controllers/usersController",
 
 	"directives/thumbnailDirective",
@@ -17,7 +14,7 @@ define(["controllers/mainController",
 
 	"bower_components/angular-ui-router/release/angular-ui-router.min",
 	"js/rzslider.min"],
-function (mainController, canvasController, zoomController, homeController, signupController, drawController, usersController, thumbnailDirective, drawuiDirective, signupDirective, zoomDirective, userDirective, imageFactory, authFactory) {
+function (mainController, canvasController, homeController, usersController, thumbnailDirective, drawuiDirective, signupDirective, zoomDirective, userDirective, imageFactory, authFactory) {
 	var app = angular.module("DrawApp", ["ui.router", "rzModule"]);
 	app.config(function ($stateProvider) {
 		$stateProvider.state("home", {
@@ -55,14 +52,11 @@ function (mainController, canvasController, zoomController, homeController, sign
 	});
 
 	app.controller("MainCtrl", mainController);
-	app.controller("CanvasCtrl", canvasController);
-	app.controller("ZoomCtrl", zoomController);
-	app.controller("HomeCtrl", homeController);
-	app.controller("SignupCtrl", signupController);
-	app.controller("DrawCtrl", drawController);
-	app.controller("UsersCtrl", usersController);
+	app.controller("CanvasCtrl", canvasController);//
+	app.controller("HomeCtrl", homeController);//
+	app.controller("UsersCtrl", usersController);//
 
-	app.directive("thumbnail", thumbnailDirective); // Can directives be combined with their controller files?
+	app.directive("thumbnail", thumbnailDirective); // Can directives be combined with their controller files? Yes!!!!
 	app.directive("drawui", drawuiDirective);
 	app.directive("zoom", zoomDirective);
 	app.directive("signup", signupDirective);

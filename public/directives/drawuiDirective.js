@@ -1,8 +1,8 @@
-define([], function () {
+define(["controllers/drawuiController"], function (drawuiController) {
 	var DrawuiDirective = function () {
 		return {
 			restrict: "E",
-			controller: "DrawCtrl",
+			controller: drawuiController,
 			templateUrl: "/directives/drawui.html"
 		};
 	};

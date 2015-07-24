@@ -1,7 +1,6 @@
 define([], function () {
 	var ZoomController = function ($scope, $rootScope, $state, ImageFactory) {
 		var unbind = $rootScope.$on("imageChange", function (event, image) {
-			console.log(event, image);
 			$scope.theImage = image;
 		});
 
