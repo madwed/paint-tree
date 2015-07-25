@@ -5,3 +5,4 @@
 **/cert.pem
 **/key.pem
 **/sessionKey.txt
+**/.eslintrc
