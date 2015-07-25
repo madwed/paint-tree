@@ -1,3 +1,19 @@
+$ui-frame: #ddd;
+$radio-gray: #bbb;
+
+.ui-picker{
+	width: calc(100% - 10px);
+	border-top: 1px solid $ui-frame;
+	border-right: 1px solid $ui-frame;
+	border-bottom: 1px solid $ui-frame;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 4px;
+	&.ui-color-picker{
+		height: calc(100px + 2px);
+	}
+}
+
 .colorSliders{
 	width: 89%;
 	height: 100px;
@@ -10,78 +26,49 @@ $swatch-border: 1px;
 	margin: 0% 0% 0% 1%;
 	height: 100px;
 	display: inline-block;
-	border-radius: 5px;
-	border: $swatch-border solid lightgray;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: $swatch-border solid $ui-frame;
 }
 
-.random{
-	padding: 0px 10px 0px 0px;
-}
-
-
-#managers-wrapper{
-	margin: .42em 1.24em;
-	width: 100%;
-}
-
-#managers h3{
-	text-align: left;
-}
-
-#managers div p{
-	margin: 0em;
-	text-align: left;
-	font-size: 75%;
-}
-#managers div p input{
-	position: absolute;
-	right: 17em;
-}
-
-#colors{
-	width:99.5%;
-	margin: .42em 1.24em;
-}
-#brush{
-	width:100%;
+.ui-switch{
+	display: inline-block;
 	position: relative;
-	left: 1.2em;
-}
-#brushProperties{
-	width:100%;
-	height:8em;
-	margin: .5em .2em;
-}
-#brushProps{
-	display: inline-block;
-	position: absolute;
-	left: 0em;
-	width:70%;
-	height:8em;
-	margin:0em;
-}
-#brushSpins{
-	display: inline-block;
-	position: absolute;
-	right:0em;
-	width:20%;
-	height:8em;
-	margin:0em;
-}
-#brushSpins input{
-	width:100%;
-	height:1em;
+	left: 1px;
+	padding: 0px 1%;
+	margin: 0px;
+	border-right: 1px solid $ui-frame;
+	border-bottom: 0px solid transparent;
+	&.first-switch{
+		border-left: 1px solid $ui-frame;
+	}
+	&:hover{
+		background-color: #eee;
+	}
 }
 
-/*
-implement black and white background behind slider
-#red, #green, #blue, #alpha {
-	background: black;
-}*/
-#swatch {
-	width: 100%;
-	height: 3em;
-	margin: .42em 1.34em;
-	border: .1em solid lightgray;
-	background-image: none;
+.row.ui-row{
+	margin: 0px 0px 5vh;
 }
+
+.title{
+	margin: 0px 0px .5em 0px
+}
+
+.radio-group{
+	border: 2px solid $radio-gray;
+	border-radius: 5px;
+	margin: 0px 2% 0px 0px;
+	display: inline-block;	
+	& .radio{
+		display: inline-block;
+		padding: 4px;
+		border-left: 1px solid $radio-gray;
+		&.first-radio{
+			border-left: 0px solid $radio-gray;
+		}
+	}
+}
+
+
+

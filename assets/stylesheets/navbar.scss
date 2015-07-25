@@ -12,20 +12,49 @@ $nav-color: #000;
 }
 
 .container.nav-item{
-	margin: 0% 1%;
+	display: inline-block;
+	padding: 0% 1%;
+	height: 100%;
 	&:hover{
-		font-size: 1.05em;
+		color: #ddd;
+		background-color: lighten($nav-color, 20%);
 	}
 }
 
 .nav-left, .nav-right{
 	display: inline-block;
-	width: 48vw;
 	position: relative;
-	top: 50%;
-	transform: translate(0, -50%);
+	width: 48vw;
+	height: 100%;
 }
 
 .nav-right{
 	text-align: right;
+}
+
+.nav-arrow{
+	position: absolute;
+	top: 4vh;
+	width: 0px;
+	height: 0px;
+	border-left: 1vw solid transparent;
+	border-right: 1vw solid transparent;
+	border-bottom: 1vh solid white;
+}
+
+.nav-item span{
+	position: relative;
+	top: calc(2.5vh - 0.5em);
+	width: 100%;
+}
+
+.arrow-container{
+	margin: 0px calc(50% - 1vw);
+}
+
+.signup-nav{
+	position: fixed;
+	top: 5vh;
+	right: 3vw;
+	z-index: 2;
 }

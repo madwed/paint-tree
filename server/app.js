@@ -8,6 +8,8 @@ var router = require(path.join(__dirname, "./routes"));
 var sass = require("node-sass-middleware");
 var fs = require("fs");
 var logger = require("morgan");
+var db = require(path.join(__dirname, "./db"));
+var MongoStore = require("connect-mongo")(session);
 
 var app = express();
 
@@ -21,7 +23,8 @@ app.use(session({
   cookie: {
     httpOnly: false,
     secure: true
-  }
+  },
+  store: new MongoStore({mongooseConnection: db, ttl: 7 * 24 * 60 * 60})
 }));
 
 app.use(
@@ -38,17 +41,17 @@ app.use(bodyParser.json({limit: "700kb"}));
 app.use("/bower_components", express.static(path.join(__dirname, "../bower_components")));
 app.use(express.static(path.join(__dirname, "../public")));
 
-var cors = {
-    origin: ["www.one.com", "www.two.com", "www.three.com"],
-    default: "www.one.com"
-};
+// var cors = {
+//     origin: ["www.one.com", "www.two.com", "www.three.com"],
+//     default: "www.one.com"
+// };
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://ec2-52-3-59-46.compute-1.amazonaws.com:4040");
-  res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "http://ec2-52-3-59-46.compute-1.amazonaws.com:4040");
+//   res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 
 app.use("/", router);

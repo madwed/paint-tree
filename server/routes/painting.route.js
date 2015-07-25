@@ -12,6 +12,7 @@ var Drawing = require("../models/drawing.model.js");
 router.get("/", function (req, res) {
 	//Route that serves up a number of root images from the database
 	//For viewing
+	console.log(req.session.userId);
 	Drawing.loadImages().then(function (images) {
 		res.json(images);
 	}).then(null, function (err) {
@@ -30,7 +31,7 @@ router.get("/:paintingId", function (req, res) {
 	});
 });
 
-router.post("/", function (req, res, next) {
+router.post("/*", function (req, res, next) {
 	if(!req.session.userId) {
 		res.send("Please sign in");
 	}else {

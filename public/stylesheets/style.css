@@ -10,19 +10,44 @@
   z-index: 100; }
 
 .container.nav-item {
-  margin: 0% 1%; }
+  display: inline-block;
+  padding: 0% 1%;
+  height: 100%; }
   .container.nav-item:hover {
-    font-size: 1.05em; }
+    color: #ddd;
+    background-color: #333333; }
 
 .nav-left, .nav-right {
   display: inline-block;
-  width: 48vw;
   position: relative;
-  top: 50%;
-  transform: translate(0, -50%); }
+  width: 48vw;
+  height: 100%; }
 
 .nav-right {
   text-align: right; }
+
+.nav-arrow {
+  position: absolute;
+  top: 4vh;
+  width: 0px;
+  height: 0px;
+  border-left: 1vw solid transparent;
+  border-right: 1vw solid transparent;
+  border-bottom: 1vh solid white; }
+
+.nav-item span {
+  position: relative;
+  top: calc(2.5vh - 0.5em);
+  width: 100%; }
+
+.arrow-container {
+  margin: 0px calc(50% - 1vw); }
+
+.signup-nav {
+  position: fixed;
+  top: 5vh;
+  right: 3vw;
+  z-index: 2; }
 
 #canbox {
   position: relative;
@@ -48,6 +73,17 @@
   width: 48vw;
   height: 32vw; }
 
+.ui-picker {
+  width: calc(100% - 10px);
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 4px; }
+  .ui-picker.ui-color-picker {
+    height: calc(100px + 2px); }
+
 .colorSliders {
   width: 89%;
   height: 100px;
@@ -58,73 +94,40 @@
   margin: 0% 0% 0% 1%;
   height: 100px;
   display: inline-block;
-  border-radius: 5px;
-  border: 1px solid lightgray; }
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #ddd; }
 
-.random {
-  padding: 0px 10px 0px 0px; }
-
-#managers-wrapper {
-  margin: 0.42em 1.24em;
-  width: 100%; }
-
-#managers h3 {
-  text-align: left; }
-
-#managers div p {
-  margin: 0em;
-  text-align: left;
-  font-size: 75%; }
-
-#managers div p input {
-  position: absolute;
-  right: 17em; }
-
-#colors {
-  width: 99.5%;
-  margin: 0.42em 1.24em; }
-
-#brush {
-  width: 100%;
+.ui-switch {
+  display: inline-block;
   position: relative;
-  left: 1.2em; }
+  left: 1px;
+  padding: 0px 1%;
+  margin: 0px;
+  border-right: 1px solid #ddd;
+  border-bottom: 0px solid transparent; }
+  .ui-switch.first-switch {
+    border-left: 1px solid #ddd; }
+  .ui-switch:hover {
+    background-color: #eee; }
 
-#brushProperties {
-  width: 100%;
-  height: 8em;
-  margin: 0.5em 0.2em; }
+.row.ui-row {
+  margin: 0px 0px 5vh; }
 
-#brushProps {
-  display: inline-block;
-  position: absolute;
-  left: 0em;
-  width: 70%;
-  height: 8em;
-  margin: 0em; }
+.title {
+  margin: 0px 0px 0.5em 0px; }
 
-#brushSpins {
-  display: inline-block;
-  position: absolute;
-  right: 0em;
-  width: 20%;
-  height: 8em;
-  margin: 0em; }
-
-#brushSpins input {
-  width: 100%;
-  height: 1em; }
-
-/*
-implement black and white background behind slider
-#red, #green, #blue, #alpha {
-	background: black;
-}*/
-#swatch {
-  width: 100%;
-  height: 3em;
-  margin: 0.42em 1.34em;
-  border: .1em solid lightgray;
-  background-image: none; }
+.radio-group {
+  border: 2px solid #bbb;
+  border-radius: 5px;
+  margin: 0px 2% 0px 0px;
+  display: inline-block; }
+  .radio-group .radio {
+    display: inline-block;
+    padding: 4px;
+    border-left: 1px solid #bbb; }
+    .radio-group .radio.first-radio {
+      border-left: 0px solid #bbb; }
 
 /**
  * Angular JS slider directive
@@ -141,8 +144,7 @@ rzslider {
   display: inline-block;
   width: 100%;
   height: 4px;
-  margin: 5px 0 15px 0;
-  vertical-align: middle; }
+  margin: 15px 0 5px 0; }
 
 rzslider span {
   position: absolute;
@@ -281,23 +283,54 @@ rzslider span.rz-bubble.rz-limit {
 
 .thumbnailImg {
   border: 5px solid black;
-  width: 100%;
+  width: calc(100% - 10px);
   box-shadow: 0px 1px 1px #444; }
 
 .thumbnailBox {
   display: inline-block;
-  width: 25%;
+  width: 29%;
   padding: 1% 2%; }
 
-.map {
-  border: 5px solid #999;
-  width: calc(100% - 10px);
-  margin: 0vh 0vw 1vh 0vh; }
-
 .signup {
+  border-top: 1px solid transparent;
+  border-right: 5px solid #bbb;
+  border-bottom: 5px solid #bbb;
+  border-left: 5px solid #bbb;
   text-align: center;
-  border-radius: 5px;
-  box-shadow: 0px 1px 1px #bbb; }
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  box-shadow: 0px 1px 1px #555;
+  background-color: white;
+  padding: 2vh 2vh; }
+  .signup h1 {
+    margin: 0px 0px 1vh 0px; }
+  .signup button {
+    margin: 2px 0px; }
+
+.signup-buttons {
+  text-align: right; }
+  .signup-buttons button {
+    font: .75em "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    background: #777;
+    background-image: -webkit-linear-gradient(top, #777, #000000);
+    background-image: -moz-linear-gradient(top, #777, #000000);
+    background-image: -ms-linear-gradient(top, #777, #000000);
+    background-image: -o-linear-gradient(top, #777, #000000);
+    background-image: linear-gradient(to bottom, #777, #000000);
+    -webkit-border-radius: 8;
+    -moz-border-radius: 8;
+    border-radius: 8px;
+    text-shadow: 0px 3px 3px #666666;
+    color: #ffffff;
+    padding: 5px 10px 5px 10px;
+    border: 2px solid white; }
+    .signup-buttons button:hover {
+      background: #000;
+      background-image: -webkit-linear-gradient(top, #000, #777);
+      background-image: -moz-linear-gradient(top, #000, #777);
+      background-image: -ms-linear-gradient(top, #000, #777);
+      background-image: -o-linear-gradient(top, #000, #777);
+      background-image: linear-gradient(to bottom, #000, #777); }
 
 .zoomImg {
   border: 4px solid black;
@@ -310,6 +343,12 @@ rzslider span.rz-bubble.rz-limit {
 html, body {
   margin: 0px;
   cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font: .75em "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; }
 
 .row {
@@ -329,52 +368,40 @@ html, body {
   text-align: left; }
 
 .col-lg-1 {
-  width: 7vw;
-  position: relative; }
+  width: 8vw; }
 
 .col-lg-2 {
-  width: 15vw;
-  position: relative; }
+  width: 16vw; }
 
 .col-lg-3 {
-  width: 23vw;
-  position: relative; }
+  width: 24vw; }
 
 .col-lg-4 {
-  width: 31vw;
-  position: relative; }
+  width: 32vw; }
 
 .col-lg-5 {
-  width: 39vw;
-  position: relative; }
+  width: 40vw; }
 
 .col-lg-6 {
-  width: 47vw;
-  position: relative; }
+  width: 48vw; }
 
 .col-lg-7 {
-  width: 55vw;
-  position: relative; }
+  width: 56vw; }
 
 .col-lg-8 {
-  width: 63vw;
-  position: relative; }
+  width: 64vw; }
 
 .col-lg-9 {
-  width: 71vw;
-  position: relative; }
+  width: 72vw; }
 
 .col-lg-10 {
-  width: 79vw;
-  position: relative; }
+  width: 80vw; }
 
 .col-lg-11 {
-  width: 87vw;
-  position: relative; }
+  width: 88vw; }
 
 .col-lg-12 {
-  width: 95vw;
-  position: relative; }
+  width: 96vw; }
 
 .mapBox {
   position: fixed;

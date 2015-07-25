@@ -5,7 +5,7 @@
 	<title>Bouncing Shape</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
 </head>
-<body>
+<body ng-controller="MainCtrl">
 <div class="navbar row">
 	<div class="nav-left">
 		<div class="nav-item container" ui-sref="home"><span>Home</span></div>
@@ -14,10 +14,14 @@
 		<div class="nav-item container" ui-sref="draw"><span>Tree</span></div>
 	</div><!-- 
  --><div class="nav-right">
-		<div class="nav-item container" ui-sref="home"><span>Signup</span></div>
+		<div class="nav-item container" ng-click="signupnow = !signupnow">
+			<span>---- Signup ----</span>
+			<div class="arrow-container" ng-cloak><div class="nav-arrow" ng-show="signupnow"></div></div>
+		</div>
 	</div>
 </div>
-<div class="content" ng-controller="MainCtrl">
+<signup class="signup-nav col-lg-4 col-md-6 col-sm-12" ng-show="signupnow"></signup>
+<div class="content">
 	<div class="container bodyBox" ui-view="body"></div><!-- 
  --><div class="container mapBox" ui-view="map"></div>
 </div>
