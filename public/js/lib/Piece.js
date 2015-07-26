@@ -28,8 +28,8 @@ define(["js/lib/Brush",
       this.runBox = {running: false, run: run};
     }
 
-    Piece.prototype.draw = function (mark) {
-      var stroke = {brush: new Brush(mark.positions, mark.mark.size), paint: new Paint(mark.mark)};
+    Piece.prototype.draw = function (stroke) {
+      stroke = {brush: new Brush(stroke.positions, stroke.mark), paint: new Paint(stroke.mark)};
       this.strokes.push(stroke);
       if(!this.runBox.running) {
         this.runBox.running = true;
@@ -46,8 +46,8 @@ define(["js/lib/Brush",
           var iData = this.iData.data;
           var paint = stroke.paint;
           var dimensions = this.dimensions;
-          brushPositions.forEach(function (pos) {
-            var pixel = mathLib.getPixel(pos, dimensions);
+          brushPositions = mathLib.getPixels(brushPositions, dimensions, stroke.brush.interpolationStyle);
+          brushPositions.forEach(function (pixel) {
             if(pixel !== undefined) {
               var colors = paint.variety(iData, pixel);
               this.applyColor(colors, pixel);
@@ -78,10 +78,8 @@ define(["js/lib/Brush",
         anim = function () {
           again = runBox.run();
           if(again) {
-            console.log("again");
             cancel = requestAnimationFrame(anim);
           }else {
-            console.log("stop");
             cancelAnimationFrame(cancel);
             runBox.running = false;
           }

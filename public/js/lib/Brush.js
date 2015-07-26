@@ -8,7 +8,7 @@ define(["js/lib/Vector",
   function (Vector, mathLib) {
     "use strict";
     //x1_, y1_, x2_, y2_, vel, life, smearDuration <---- Old params
-    var LinearBrush = function (positions, size) {
+    var LinearBrush = function (positions, mark) {
       var startPoint = this.startPoint = positions.start;
       var endPoint = this.endPoint = positions.end;
 
@@ -16,8 +16,10 @@ define(["js/lib/Vector",
       //at (x1,y1), stretching to (x2,y2)
       var startX = startPoint.x;
       var startY = startPoint.y;
-
+      console.log(mark);
+      var size = mark.size;
       this.width = size;
+      this.interpolationStyle = mark.interpolationStyle;
 
       this.vel = new Vector(endPoint.x - startX, endPoint.y - startY);
 

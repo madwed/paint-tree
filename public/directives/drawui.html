@@ -1,9 +1,15 @@
 <div class="row ui-row">
-	<div class="ui-switch first-switch">Default</div><!-- 
-	 --><div class="ui-switch" ng-click="switchSlides()">Random</div><!-- 
-	 --><div class="ui-switch">Gradient</div>
+	<div class="ui-switch first-switch" 
+	ng-class="{selected: 'standard' === colorSample}" 
+	ng-click="switchSlides('standard')">Standard</div><!-- 
+	 --><div class="ui-switch" 
+	 ng-class="{selected: 'random' === colorSample}" 
+	 ng-click="switchSlides('random')">Random</div><!-- 
+	 --><div class="ui-switch" 
+	 ng-class="{selected: 'gradient' === colorSample}" 
+	 ng-click="switchSlides('gradient')">Gradient</div>
 	<div class="row ui-picker ui-color-picker">
-		<div class="colorSliders" ng-hide="random">
+		<div id="standardColors" class="colorSliders" ng-show="'standard' === colorSample">
 			<rzslider
 			class="red"
 		    rz-slider-ceil="colorSlides.max"
@@ -27,7 +33,7 @@
 		    rz-slider-floor="opacitySlides.min"
 		    rz-slider-model="alphaSlide"></rzslider>
 		</div><!-- 
-	 --><div class="colorSliders" ng-show="random">
+	 --><div id="rangeColors" class="colorSliders" ng-show="'random' === colorSample || 'gradient' === colorSample" >
 	 		<rzslider
 			class="red"
 		    rz-slider-ceil="colorSlides.max"
@@ -60,11 +66,23 @@
 </div>
 		
 <div class="row ui-row">
-	<div class="ui-switch first-switch">Linear</div><!-- 
-	 --><div class="ui-switch">Dry</div><!-- 
-	 --><div class="ui-switch">Mucous</div>
+	<div class="ui-switch first-switch"
+	ng-class="{selected: 'linear' === brush}" 
+	ng-click="switchBrush('linear')">Linear</div><!-- 
+	 --><div class="ui-switch"
+	ng-class="{selected: 'dry' === brush}" 
+	ng-click="switchBrush('dry')">Dry</div><!-- 
+	 --><div class="ui-switch"
+	ng-class="{selected: 'mucous' === brush}" 
+	ng-click="switchBrush('mucous')">Mucous</div>
 	<div class="row ui-picker">
-		<div class="radio-group"><div class="radio first-radio">Smooth</div><div class="radio">Choppy</div></div>
+		<div class="radio-group">
+			<div class="radio first-radio" 
+			ng-class="{selected: 'smooth' === interpolationStyle}" 
+			ng-click="switchInterpolationStyle('smooth')">Smooth</div>
+			<div class="radio" 
+			ng-class="{selected: 'choppy' === interpolationStyle}" 
+			ng-click="switchInterpolationStyle('choppy')">Choppy</div></div>
 		<p class="title">brush width</p>
 		<rzslider
 		rz-slider-floor="1"
@@ -74,9 +92,15 @@
 </div>
 
 <div class="row ui-row">
-	<div class="ui-switch first-switch">Opaque</div><!-- 
-	 --><div class="ui-switch">Tint</div><!-- 
-	 --><div class="ui-switch">Erase</div>
+	<div class="ui-switch first-switch"
+	ng-class="{selected: 'opaque' === paint}" 
+	ng-click="switchPaint('opaque')">Opaque</div><!-- 
+	 --><div class="ui-switch"
+	ng-class="{selected: 'tint' === paint}" 
+	ng-click="switchPaint('tint')">Tint</div><!-- 
+	 --><div class="ui-switch"
+	ng-class="{selected: 'erase' === paint}" 
+	ng-click="switchPaint('erase')">Erase</div>
 	<div class="row ui-picker">
 		<p class="title">Paint</p>
 		<p class="title">resample (x) times</p>

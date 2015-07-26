@@ -1,5 +1,6 @@
 $ui-frame: #ddd;
 $radio-gray: #bbb;
+$ui-select: #eee;
 
 .ui-picker{
 	width: calc(100% - 10px);
@@ -43,7 +44,7 @@ $swatch-border: 1px;
 		border-left: 1px solid $ui-frame;
 	}
 	&:hover{
-		background-color: #eee;
+		background-color: $ui-select;
 	}
 }
 
@@ -68,6 +69,10 @@ $swatch-border: 1px;
 			border-left: 0px solid $radio-gray;
 		}
 	}
+}
+
+.selected{
+	background-color: $ui-frame;
 }
 
 

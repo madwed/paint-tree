@@ -1,5 +1,12 @@
 define([], function () {
 	var DrawController = function ($scope, $rootScope) {
+		$scope.colorSample = "standard";
+
+		$scope.brush = "linear";
+		$scope.interpolationStyle = "smooth";
+
+		$scope.paint = "opaque";
+
 		$scope.colorSlides = {
 			max: 255,
 			min: 0
@@ -21,9 +28,18 @@ define([], function () {
 		$scope.sampleSlide = 0;
 		$scope.widthSlide = 19;
 
-		$scope.switchSlides = function () {
-			$scope.random = !$scope.random;
-			// $rootScope.$broadcast("reCalcViewDimensions");
+		$scope.switchSlides = function (sample) {
+			$scope.colorSample = sample;
+			setTimeout(function () { $rootScope.$broadcast("reCalcViewDimensions"); }, 1);
+		};
+		$scope.switchBrush = function (brush) {
+			$scope.brush = brush;
+		};
+		$scope.switchPaint = function (paint) {
+			$scope.paint = paint;
+		};
+		$scope.switchInterpolationStyle = function (style) {
+			$scope.interpolationStyle = style;
 		};
 
 		var emitMark = function (event) {
@@ -35,10 +51,11 @@ define([], function () {
 					b: $scope.blueSlide,
 					a: $scope.alphaSlide,
 					size: $scope.widthSlide,
-					resample: $scope.sampleSlide
+					resample: $scope.sampleSlide,
+					paint: $scope.paint,
+					interpolationStyle: $scope.interpolationStyle
 				}
 			};
-			fullMark.mark.mark = "acrylic";
 			$rootScope.$emit("markEvent", fullMark);
 		};
 		document.addEventListener("lineEvent", emitMark);

@@ -11,21 +11,21 @@ define([],
 			this.color = {r: mark.r, g: mark.g, b: mark.b, a: mark.a * 255};
 			this.sampleFreq = mark.sampleFrequency;
 			this.sampleCount = mark.sampleFrequency;
-			this.variety = this.makePaint(mark.mark);
+			this.variety = this.makePaint(mark.paint);
 		};
 
 
 
 		var paintLib = {
-			wash: function (iData, pixel) {
+			tint: function (iData, pixel) {
 				var r = (iData[pixel] + this.color.r) / 2;
 				var g = (iData[pixel + 1] + this.color.g) / 2;
 				var b = (iData[pixel + 2] + this.color.b) / 2;
-				var a = this.color.a;
+				var a = iData[pixel + 3];
 
 				return {r: r, g: g, b: b, a: a};
 			},
-			acrylic: function () {
+			opaque: function () {
 				var r = this.color.r;
 				var g = this.color.g;
 				var b = this.color.b;
@@ -36,8 +36,8 @@ define([],
 
 		};
 
-		Paint.prototype.makePaint = function (mark) {
-			return paintLib[mark].bind(this);
+		Paint.prototype.makePaint = function (paint) {
+			return paintLib[paint].bind(this);
 		};
 
 		Paint.prototype.resample = function (iData, position) {
@@ -108,50 +108,10 @@ define([],
 
 		// //Get Brushes' pixelPositions (x,y coords) and rgba values
 		// //Convert x,y coords to imageData pixel values
-		// Paint.prototype.getMarks = function () {
-		// 	var marks = {pixels: [], rGBAs: []};
-		// 	this.brushes.forEach(function (brush, index) {
-		// 		var bristlePositions = brush.pixelPositions;
-		// 		marks.rGBAs[index] = brush.rgbaValues;
-		// 		var pixels = [];
-		// 		bristlePositions.forEach(function (bristle) {
-		// 			pixels.push(mathLib.getPixel(bristle[0], bristle[1], this.width, this.height));
-		// 		}, this);
-		// 		marks.pixels[index] = pixels;
-		// 	}, this);
-		// 	return marks;
-		// };
+		
 
 		// //Drops the first pixel, bc not doing so causes display errors
-		// Paint.prototype.getMarksNoGaps = function () {
-		// 	//Create the empty marks object
-		// 	var marks = {pixels: [], rGBAs: []};
-		// 	this.brushes.forEach(function (brush, index) {
-		// 	//For each brush get the brush's positions, set the rgba for the current mark in marks
-		// 	var bristlePositions = brush.pixelPositions; var bristles = bristlePositions.length;
-		// 	var pixels = [];
-		// 	var dx = Math.abs((bristlePositions[bristles - 1][0] - bristlePositions[0][0]) / bristles);
-		// 	var dy = Math.abs((bristlePositions[bristles - 1][1] - bristlePositions[0][1]) / bristles);
-		// 	var direction, getPixel;
-		// 	//If the rate of change is greater along the x axis, look for shifts along the y-axis and vice-versa
-		// 	if(dx > dy) {
-		// 		direction = 1;
-		// 		getPixel = function (flat, change) {return mathLib.getPixel(flat, change, this.width, this.height); };
-		// 	}else {
-		// 		direction = 0;
-		// 		getPixel = function (flat, change) {return mathLib.getPixel(change, flat, this.width, this.height); };
-		// 	}
-		// 	for(var bristle = 1; bristle < bristles; bristle++) {
-		// 		var oldAxis = Math.floor(bristlePositions[bristle - 1][direction]);
-		// 		var newAxis = Math.floor(bristlePositions[bristle][direction]);
-		// 		var flatAxis = bristlePositions[bristle][Math.abs(direction - 1)];
-		// 		if(oldAxis !== newAxis) {pixels.push(getPixel(flatAxis, oldAxis, this.width, this.height)); }
-		// 		pixels.push(getPixel(flatAxis, newAxis, this.width, this.height));
-		// 	}
-		// 	marks.pixels[index] = pixels; marks.rGBAs[index] = brush.rgbaValues;
-		// 	}, this);
-		// 	return marks;
-		// };
+		
 
 		// Paint.prototype.consolidatePixels = function (marks) {
 		// 	var marksPixels = marks.pixels;
