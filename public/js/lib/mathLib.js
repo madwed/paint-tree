@@ -48,7 +48,7 @@ define([], function () {
 			flatAxis = positions[bristle][inverseDirection];
 			if(oldAxis !== newAxis) {
 				pixels.push(getPixelFunc(flatAxis, oldAxis));
-				oldAxis = Math.floor(positions[bristle - 1][direction]);
+				oldAxis = newAxis;
 			}
 			pixels.push(getPixelFunc(flatAxis, newAxis));
 		}
@@ -66,6 +66,8 @@ define([], function () {
 		getPixels: function (positions, dimensions, style) {
 			console.log(style);
 			if(style === "smooth") {
+				// console.log(positions);
+				// console.log(getPixelsNoGaps(positions, dimensions));
 				return getPixelsNoGaps(positions, dimensions);
 			}else {
 				return getPixels(positions, dimensions);

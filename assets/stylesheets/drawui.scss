@@ -68,6 +68,9 @@ $swatch-border: 1px;
 		&.first-radio{
 			border-left: 0px solid $radio-gray;
 		}
+		&:hover{
+			background-color: $ui-select;
+		}
 	}
 }
 

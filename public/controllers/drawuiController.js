@@ -44,6 +44,7 @@ define([], function () {
 
 		var emitMark = function (event) {
 			var fullMark = {
+				brush: $scope.brush,
 				positions: event.detail,
 				mark: {
 					r: $scope.redSlide,

@@ -128,6 +128,8 @@
     border-left: 1px solid #bbb; }
     .radio-group .radio.first-radio {
       border-left: 0px solid #bbb; }
+    .radio-group .radio:hover {
+      background-color: #eee; }
 
 .selected {
   background-color: #ddd; }

@@ -16,7 +16,7 @@ define(["js/lib/Vector",
       //at (x1,y1), stretching to (x2,y2)
       var startX = startPoint.x;
       var startY = startPoint.y;
-      console.log(mark);
+      
       var size = mark.size;
       this.width = size;
       this.interpolationStyle = mark.interpolationStyle;
