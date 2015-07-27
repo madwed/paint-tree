@@ -30,6 +30,12 @@ $swatch-border: 1px;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border: $swatch-border solid $ui-frame;
+	overflow: hidden;
+}
+.rangeLine{
+	width: 100%;
+	height: 1px;
+	display: block;
 }
 
 .ui-switch{
@@ -77,6 +83,8 @@ $swatch-border: 1px;
 .selected{
 	background-color: $ui-frame;
 }
+
+
 
 
 

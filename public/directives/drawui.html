@@ -1,67 +1,72 @@
 <div class="row ui-row">
 	<div class="ui-switch first-switch" 
-	ng-class="{selected: 'standard' === colorSample}" 
-	ng-click="switchSlides('standard')">Standard</div><!-- 
-	 --><div class="ui-switch" 
-	 ng-class="{selected: 'random' === colorSample}" 
-	 ng-click="switchSlides('random')">Random</div><!-- 
-	 --><div class="ui-switch" 
-	 ng-class="{selected: 'gradient' === colorSample}" 
-	 ng-click="switchSlides('gradient')">Gradient</div>
+		ng-class="{selected: 'standard' === colorSample}" 
+		ng-click="switchSlides('standard')">Standard</div><!-- 
+--><div class="ui-switch" 
+	 	ng-class="{selected: 'random' === colorSample}" 
+	 	ng-click="switchSlides('random')">Random</div><!-- 
+--><div class="ui-switch" 
+	 	ng-class="{selected: 'gradient' === colorSample}" 
+	 	ng-click="switchSlides('gradient')">Gradient</div>
 	<div class="row ui-picker ui-color-picker">
-		<div id="standardColors" class="colorSliders" ng-show="'standard' === colorSample">
+		<div class="colorSliders" ng-show="'standard' === colorSample">
 			<rzslider
 			class="red"
 		    rz-slider-ceil="colorSlides.max"
 		    rz-slider-floor="colorSlides.min"
-		    rz-slider-model="redSlide"></rzslider>
+		    rz-slider-model="standardColors.red"></rzslider>
 			<rzslider
 			class="green"
 			rz-slider-ceil="colorSlides.max"
 		    rz-slider-floor="colorSlides.min"
-		    rz-slider-model="greenSlide"></rzslider>
+		    rz-slider-model="standardColors.green"></rzslider>
 			<rzslider
 			class="blue"
 			rz-slider-ceil="colorSlides.max"
 		    rz-slider-floor="colorSlides.min"
-		    rz-slider-model="blueSlide"></rzslider>
+		    rz-slider-model="standardColors.blue"></rzslider>
 			<rzslider
 			class="alpha"
 			rz-slider-step="0.01"
 			rz-slider-precision="2"
 			rz-slider-ceil="opacitySlides.max"
 		    rz-slider-floor="opacitySlides.min"
-		    rz-slider-model="alphaSlide"></rzslider>
+		    rz-slider-model="standardColors.alpha"></rzslider>
 		</div><!-- 
-	 --><div id="rangeColors" class="colorSliders" ng-show="'random' === colorSample || 'gradient' === colorSample" >
+	 --><div class="colorSliders" ng-show="'random' === colorSample || 'gradient' === colorSample">
 	 		<rzslider
 			class="red"
 		    rz-slider-ceil="colorSlides.max"
 		    rz-slider-floor="colorSlides.min"
-		    rz-slider-high="redRangeSlide.max"
-		    rz-slider-model="redRangeSlide.min"></rzslider>
+		    rz-slider-high="rangeColors.red.max"
+		    rz-slider-model="rangeColors.red.min"></rzslider>
 			<rzslider
 			class="green"
 			rz-slider-ceil="colorSlides.max"
 		    rz-slider-floor="colorSlides.min"
-		    rz-slider-high="greenRangeSlide.max"
-		    rz-slider-model="greenRangeSlide.min"></rzslider>
+		    rz-slider-high="rangeColors.green.max"
+		    rz-slider-model="rangeColors.green.min"></rzslider>
 			<rzslider
 			class="blue"
 			rz-slider-ceil="colorSlides.max"
 		    rz-slider-floor="colorSlides.min"
-		    rz-slider-high="blueRangeSlide.max"
-		    rz-slider-model="blueRangeSlide.min"></rzslider>
+		    rz-slider-high="rangeColors.blue.max"
+		    rz-slider-model="rangeColors.blue.min"></rzslider>
 			<rzslider
 			class="alpha"
 			rz-slider-step="0.01"
 			rz-slider-precision="2"
 			rz-slider-ceil="opacitySlides.max"
 		    rz-slider-floor="opacitySlides.min"
-		    rz-slider-high="alphaRangeSlide.max"
-		    rz-slider-model="alphaRangeSlide.min"></rzslider>
+		    rz-slider-high="rangeColors.alpha.max"
+		    rz-slider-model="rangeColors.alpha.min"></rzslider>
 		</div><!-- 
-	 --><div class="color swatch" style="background-color:rgba({{redSlide}},{{greenSlide}},{{blueSlide}},{{alphaSlide}});"></div>
+	 --><div class="swatch"
+	 		ng-show="'standard' === colorSample" 
+	 		style="background-color:rgba({{standardColors.red}},{{standardColors.green}},{{standardColors.blue}},{{standardColors.alpha}});"></div><!-- 
+	 --><div class="swatch" 
+	 		ng-show="'random' === colorSample || 'gradient' === colorSample"
+	 		id="rangeSwatch"></div>
 	</div>
 </div>
 		

@@ -1,31 +1,30 @@
 "use strict";
 
 var express = require("express");
-var session = require("express-session");
+// var session = require("express-session"); //////////////////REENABLE LATER
 var path = require("path");
 var bodyParser = require("body-parser");
 var router = require(path.join(__dirname, "./routes"));
 var sass = require("node-sass-middleware");
-var fs = require("fs");
-var logger = require("morgan");
-var db = require(path.join(__dirname, "./db"));
-var MongoStore = require("connect-mongo")(session);
+// var fs = require("fs");
+// var logger = require("morgan");
+// var db = require(path.join(__dirname, "./db"));
+// var MongoStore = require("connect-mongo")(session);
 
 var app = express();
 
-app.use(logger("dev"));
+// app.use(logger("dev"));
 
-// app.use(express.cookieParser());
-app.use(session({
-  secret: fs.readFileSync(path.join(__dirname, "./sessionKey.txt"), "utf8"),
-  resave: false,
-  saveUninitialize: false,
-  cookie: {
-    httpOnly: false,
-    secure: true
-  },
-  store: new MongoStore({mongooseConnection: db, ttl: 7 * 24 * 60 * 60})
-}));
+// app.use(session({ //////////////////REENABLE LATER
+//   secret: fs.readFileSync(path.join(__dirname, "./sessionKey.txt"), "utf8"),
+//   resave: false,
+//   saveUninitialize: false,
+//   cookie: {
+//     httpOnly: false,
+//     secure: true
+//   },
+//   store: new MongoStore({mongooseConnection: db, ttl: 7 * 24 * 60 * 60})
+// }));
 
 app.use(
   sass({

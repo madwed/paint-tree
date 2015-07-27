@@ -8,18 +8,18 @@ define(["js/lib/Vector",
   function (Vector, mathLib) {
     "use strict";
     //x1_, y1_, x2_, y2_, vel, life, smearDuration <---- Old params
-    var LinearBrush = function (positions, mark) {
-      var startPoint = this.startPoint = positions.start;
-      var endPoint = this.endPoint = positions.end;
+    var LinearBrush = function (brush) {
+      var startPoint = this.startPoint = brush.positions.start;
+      var endPoint = this.endPoint = brush.positions.end;
 
       //Define the Pixel LinearBrush as a line positioned
       //at (x1,y1), stretching to (x2,y2)
       var startX = startPoint.x;
       var startY = startPoint.y;
-      
-      var size = mark.size;
+
+      var size = brush.size;
       this.width = size;
-      this.interpolationStyle = mark.interpolationStyle;
+      this.interpolationStyle = brush.interpolationStyle;
 
       this.vel = new Vector(endPoint.x - startX, endPoint.y - startY);
 

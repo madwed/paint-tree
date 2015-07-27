@@ -8,7 +8,7 @@ define([], function () {
 				}
 				var req = {
 					method: method,
-					url: "https://ec2-52-3-59-46.compute-1.amazonaws.com:8080/users/signin",
+					url: "/users/signin",
 					data: credentials
 				};
 

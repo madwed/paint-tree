@@ -4,7 +4,7 @@ define([], function () {
 		var images = {loadImg: false};
 		return {
 			getPaintings: function () {
-				return $http.get("https://ec2-52-3-59-46.compute-1.amazonaws.com:8080/paintings").
+				return $http.get("/paintings").
 					then(function (res) {
 						// console.log(res);
 						return res.data;
@@ -18,7 +18,7 @@ define([], function () {
 			},
 			getCurrentImage: function () {
 				images.loadImg = false;
-				var currentImgRoute = "https://ec2-52-3-59-46.compute-1.amazonaws.com:8080/paintings/" + images.currentImg.data._id;
+				var currentImgRoute = "/paintings/" + images.currentImg.data._id;
 				console.log(currentImgRoute);
 				return $http.get(currentImgRoute).
 					then(function (res) {

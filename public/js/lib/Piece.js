@@ -29,7 +29,7 @@ define(["js/lib/Brush",
     }
 
     Piece.prototype.draw = function (stroke) {
-      stroke = {brush: new Brush(stroke.positions, stroke.mark), paint: new Paint(stroke.mark)};
+      stroke = {brush: new Brush(stroke.brush), paint: new Paint(stroke.mark)};
       this.strokes.push(stroke);
       if(!this.runBox.running) {
         this.runBox.running = true;

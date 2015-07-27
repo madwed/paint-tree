@@ -96,7 +96,13 @@
   display: inline-block;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  border: 1px solid #ddd; }
+  border: 1px solid #ddd;
+  overflow: hidden; }
+
+.rangeLine {
+  width: 100%;
+  height: 1px;
+  display: block; }
 
 .ui-switch {
   display: inline-block;
